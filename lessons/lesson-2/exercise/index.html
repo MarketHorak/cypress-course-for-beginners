@@ -10,27 +10,27 @@
 
 <body>
   <h1 id="counterValue">0</h1><br>
-  <button id="incrementButton">Zvysit</button>
-  <button onclick="incrementByTwo()">Zvysit o 2</button>
-  <button onclick="printPrimitives()">Print Primitives</button>
-  <button id="addCommentButton">Add Comment</button>
+  <button type="button" id="incrementButton">Zvysit</button>
+  <button type="button" onclick="incrementByTwo()">Zvysit o 2</button>
+  <button type="button" onclick="printPrimitives()">Print Primitives</button>
+  <button type="button" id="addCommentButton">Add Comment</button>
   <article></article>
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
-      console.log('Document loaded');
-    });
+      console.log('Document loaded')
+    })
 
     document.getElementById('incrementButton').addEventListener('click', function () {
-      counter++;
-      console.log('Counter:', counter);
-      document.getElementById('counterValue').innerText = counter;
-    });
+      counter++
+      console.log('Counter:', counter)
+      document.getElementById('counterValue').innerText = counter
+    })
 
     function incrementByTwo() {
-      counter += 2;
-      console.log('Counter:', counter);
-      document.getElementById('counterValue').innerText = counter;
+      counter += 2
+      console.log('Counter:', counter)
+      document.getElementById('counterValue').innerText = counter
     }
 
     document.getElementById('addCommentButton').addEventListener('click', function () {
@@ -40,13 +40,14 @@
         "Awesome!",
         "Excellent!",
         "Fantastic!"
-      ];
-      const randomComment = comments[Math.floor(Math.random() * comments.length)];
-      const article = document.querySelector('article');
-      const commentElement = document.createElement('p');
-      commentElement.textContent = randomComment;
-      article.appendChild(commentElement);
-    });
+      ]
+      const randomComment = comments[Math.floor(Math.random() * comments.length)]
+      const article = document.querySelector('article')
+      const commentElement = document.createElement('p')
+      commentElement.classList.add('comment')
+      commentElement.textContent = randomComment
+      article.appendChild(commentElement)
+    })
 
   </script>
   <script src="script.js"></script>

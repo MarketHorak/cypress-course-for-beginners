@@ -1,6 +1,10 @@
 let counter = 0
 
 function JsFunTypesExceptions() {
+  // var retazec = "Ahoj svet"
+  // retazec = 42
+  // console.log(retazec);
+
   console.log('5' - 3)
   console.log('5' + 3)
 
@@ -40,6 +44,20 @@ function printPrimitives() {
   console.log('Prázdna hodnota:', emptyValue, 'Typ:', typeof emptyValue)
   console.log('Unikátne ID:', uniqueId, 'Typ:', typeof uniqueId)
   console.log('Veľké číslo:', largeNumber, 'Typ:', typeof largeNumber)
+
+  console.error('Typy v JavaScripte môžu byť dynamické a môžu sa meniť počas behu programu.')
+}
+
+function clgGroup() {
+  let c1 = 10;
+  let c2 = 5;
+
+
+  console.group("Nazov grupy")
+  console.log("dsadasdas", c1 / c2, "2. Delenie:", c1 / c2, "3. Modulus:", c1 % c2, "4. Exponentiation:", c1 ** c2)
+  console.log("dsa", c1 == c2, "2. Rovná sa:", c1 == c2, "3. Nerovná sa:", c1 != c2, "4. Rovná sa (prísne):", c1 === c2, "5. Nerovná sa (prísne):", c1 !== c2);
+  console.groupEnd()
+
 }
 
 function letVarConst() {
@@ -119,6 +137,6 @@ function incrementDecrementOperators() {
 
 }
 
-// printPrimitives()
+//clgGroup()
 
-// JsFunTypesExceptions()
+JsFunTypesExceptions()

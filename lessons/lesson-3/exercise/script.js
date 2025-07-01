@@ -12,6 +12,12 @@ function printHeight(height) {
   // TODO: Implementujte vypis do span elementu
 }
 
+function printCurrentDay() {
+  // TODO: Vypiste aktualny den pomocou switch
+
+  const den = 'Utorok'
+}
+
 function printNumbersFrom1To100() {
   // Vypiste vsetky cisla od 1 do 100
   // TODO: Implementujte cyklus
@@ -24,6 +30,6 @@ function printOnlyEvenNumbersFrom1To100() {
   // TODO: Implementujte vypis do span elementu s id onlyEvenNumbers
 }
 
-printHeight(190);
-printNumbersFrom1To100();
-printOnlyEvenNumbersFrom1To100();
+printHeight(190)
+printNumbersFrom1To100()
+printOnlyEvenNumbersFrom1To100()

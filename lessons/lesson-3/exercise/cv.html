@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulačka</title>
+</head>
+<body>
+  <h2>Jednoduchá kalkulačka</h2>
+
+  <form id="calculatorForm">
+    <input type="number" id="number1" placeholder="První číslo" required>
+    <select id="operator">
+      <option value="+">+</option>
+      <option value="-">−</option>
+      <option value="*">*</option>
+      <option value="/">/</option>
+    </select>
+    <input type="number" id="number2" placeholder="Druhé číslo" required>
+    <button type="submit">Vypočítat</button>
+  </form>
+
+  <p id="vysledek"></p>
+
+  <!-- Napojení externího JavaScriptu -->
+  <script src="cvkalkulator.js"></script>
+</body>
+</html>

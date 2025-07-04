@@ -30,3 +30,33 @@ const response = '[{"id":"1","name":"Google Pixel 6 Pro","data":{"color":"Cloudy
 
 // const products = JSON.parse(response);
 // console.log(products[0]);
+
+const pole = ["mrkooooo", "bubak", "kacer"];
+
+pole.forEach((parametrvypis) => {
+  console.log(parametrvypis);
+});
+
+const osoba = {
+  jmeno: "Marketa",
+  prijmeni: "Horak",
+  zavislost: "kava", 
+  adresa: {
+    mesto: "strasidlakov",
+    ulice: "bubakov",
+    cislo: 47
+  },
+  telefon: "+420 602 345 678",
+  email: "marketa.horak@email.cz"
+};
+
+// Výpis do konzole
+console.log(`
+OSOBA:
+Jméno:      ${osoba.jmeno}
+Příjmení:   ${osoba.prijmeni}
+Závislost:  ${osoba.zavislost}
+Adresa:     ${osoba.adresa.ulice} ${osoba.adresa.cislo}
+Telefon:    ${osoba.telefon}
+Email:      ${osoba.email}
+`);

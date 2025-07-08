@@ -1,54 +1,107 @@
 <!DOCTYPE html>
 <html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 5 Page</title>
+    <style>
+      .red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Vitajte to Lesson 5</h1>
+    <p id="simpleText"></p>
+    <button id="klik">Zmena textu</button>
+    <p>chcem byt cerveny</p>
+    <p id="">a ja tiez</p>
+    <h4>Users:</h4>
+    <p id="users"></p>
+    <ul id="user-list"></ul>
+    <button id="btn1">a som event listener</button>
+    <p data-user-id="123">User: John Doe</p>
+    <p data-user-id="143">User: John Boe</p>
+    <button onclick="zmena()">xxx</button>
+    <script>
+      document.querySelector("h1").addEventListener("click", () => {
+        alert("neklikej na me");
+      });
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 5 Page</title>
+      function printniUrl() {
+        console.log(window.location.href);
+      }
+      printniUrl();
 
-  <style>
-    .red {
-      color: red;
-    }
-  </style>
-</head>
+      console.log("nazdar");
 
-<body>
-  <h1>Vitajte to Lesson 5</h1>
-  <p id="simpleText"></p>
-  <button>Zmena textu</button>
-  <p>chcem byt cerveny</p>
-  <p>a ja tiez</p>
+      // Napiste funkciu, ktora po kliknuti na tlacidlo zmeni text v paragrafe na "Hello World"
+      const btn = document.getElementById("btn1");
+      btn1.textContent = "Změněno!";
 
-  <h4>Users:</h4>
-  <p id="users"></p>
-  <ul id="user-list">
+      function zmena() {
+        let test = document.getElementById("simpleText");
+        test.innerText = "ty more jako si disgrafik ???";
+      }
 
-  </ul>
+      // Napiste funckciu, ktora 2 sekundy po nacitani stranky zmeni Title stranky
 
-  <button>Ja som event listener</button>
+      function zmenNazevStranky() {
+        document.title = "necum na me jmeno kdzy ho menim!";
+      }
 
-  <p data-user-id="123">User: John Doe</p>
-  <p data-user-id="143">User: John Boe</p>
-  <script>
-    // Napiste funkciu, ktora po kliknuti na tlacidlo zmeni text v paragrafe na "Hello World"
+      setTimeout(zmenNazevStranky, 2000);
 
-    // Napiste funckciu, ktora 2 sekundy po nacitani stranky zmeni Title stranky
+      // Napiste funckciu, ktora zmeni farbu vsetky paragrafov na stranke na cervenu
+      const vsechnyOdstavce = document.querySelectorAll("p");
 
-    // Napiste funckciu, ktora zmeni farbu vsetky paragrafov na stranke na cervenu
+      vsechnyOdstavce.forEach((p) => {
+        p.style.color = "red";
+      });
 
-    // Napiste funkciu, ktora vypise aktualnu adresu stranky do konzoly
+      const tlacitka = document.querySelectorAll("button");
 
-    // Napiste funkciu, ktora zobrazi Alert okno s lubovolnym textom
+      tlacitka.forEach((button) => {
+        button.style.backgroundColor = "green";
+      });
 
-    // V zlozkte data/users.json upravte users.json tak, aby obsahovalo pole uzivatelov a kazdy uzivatel mal meno, priezvisko, role a popis, ktory podporuje HTML tagy
+      const klikbutton = document.getElementById("klik");
+      klikbutton.onclick = function () {
+        klikbutton.textContent = "KUK";
+      };
 
-    // Napiste funkciu, ktora nacita data z users.json a zobrazi ich na stranke v zozname (pouzite fetch() funkciu)
+      const tlacitkaFurtMenim = document.querySelectorAll("button");
 
-    // Napiste funkciu, ktora prida event listener na tlacidlo a po kliknuti na neho zmeni text v paragrafe na "Hello World"
+      tlacitkaFurtMenim.forEach((button) => {
+        button.addEventListener("click", () => {
+          button.style.backgroundColor = "magenta";
+        });
+      });
+      // Napiste funkciu, ktora vypise aktualnu adresu stranky do konzoly
 
-    // Napiste funkciu, ktora zmeni meno uzivatela s id 123 na "Cypress Test"
-  </script>
-</body>
+      function zmena() {
+        let test = document.getElementById("simpleText");
+        window.alert("si disgrafik boo cooooo more");
+      }
 
+      // muj kod
+      document.getElementById("myInput").value = "necum";
+
+      window.onload = function () {
+        document.getElementById("myInput").value = "nová hodnota";
+      };
+
+      // window.alert('necum')
+
+      // Napiste funkciu, ktora zobrazi Alert okno s lubovolnym textom
+
+      // V zlozkte data/users.json upravte users.json tak, aby obsahovalo pole uzivatelov a kazdy uzivatel mal meno, priezvisko, role a popis, ktory podporuje HTML tagy
+
+      // Napiste funkciu, ktora nacita data z users.json a zobrazi ich na stranke v zozname (pouzite fetch() funkciu)
+
+      // Napiste funkciu, ktora prida event listener na tlacidlo a po kliknuti na neho zmeni text v paragrafe na "Hello World"
+
+      // Napiste funkciu, ktora zmeni meno uzivatela s id 123 na "Cypress Test"
+    </script>
+  </body>
 </html>

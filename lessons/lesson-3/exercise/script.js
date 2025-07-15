@@ -1,20 +1,40 @@
-function printHeight(height) {
+/*
+1. vytvorte globalnu premennu
+2. vytvorte funkciu, s 2 parametrami
+3. vytvorte vnutornu funkciu, ktora vytvorti premennu X, vypise hodnoty premnenej X,
+  parametre nadradenej funckie, a globalnuy premennu
+4 v nadradenej funkcii vytvorte podmienku, ktora vytvori premennu Y,
+  a vypise hodnotu tejto premennej
+5. vytvortne arrow funkciu, ktora vrati hodnotu stringu a vypise do console */
 
-  // TODO: Implementujte podmienku
-  // Ak je vyska vacsia ako 180 cm tak som vysoky
-  // Ak je vyska mensia ako 180 ale vacsia ako 170 cm tak som stredne vysoky
-  // Ak je vyska mensia ako 170 ale vacsia ako 160 cm tak som nizky
-  // Ak je vyska mensia ako 160 cm tak som malinky
-  // TODO: Implementujte podmienky
 
+const globalnaPremenna = "Som globálna!"
 
-  // Vypiste vysledok do span elementu s id heightStatus
-  // TODO: Implementujte vypis do span elementu
+const arrrowFunkcia = (parameter1, parameter2) => {
+  const vnutornaFunkcia = () => {
+    const X = "Ja som vo vnutornej funkcii"
+    console.log(X)
+    console.log(parameter1)
+    console.log(parameter2)
+    console.log(globalnaPremenna)
+  }
+  vnutornaFunkcia()
+
+  if (true) {
+    const Y = "Ja som bloková premenná"
+    console.log(Y)
+    console.log(parameter1)
+    console.log(parameter2)
+
+  }
+  return 'Bla bla bla'
+
 }
 
-function printCurrentDay() {
-  // TODO: Vypiste aktualny den pomocou switch
+const vysledok = arrrowFunkcia("parameter1", "parameter2")
+console.log(vysledok);
 
+<<<<<<< HEAD
   const den = 'Úterý'
 
 
@@ -85,3 +105,5 @@ printOnlyEvenNumbersFrom1To100();
 printHeight(190)
 printNumbersFrom1To100()
 printOnlyEvenNumbersFrom1To100()
+=======
+>>>>>>> upstream/main

@@ -2,8 +2,8 @@
 <html lang="sk">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ukážka interakcie Cypress</title>
   <style>
     body {
@@ -11,11 +11,9 @@
       background-color: #f4f7f6;
       margin: 0;
       padding: 40px 20px;
-      /* Add padding top/bottom */
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      /* Align items to the top */
       min-height: 100vh;
       line-height: 1.6;
       color: #333;
@@ -33,7 +31,6 @@
     h1,
     h2 {
       color: #0056b3;
-      /* Dark blue heading */
       margin-bottom: 1em;
       border-bottom: 2px solid #e9ecef;
       padding-bottom: 0.5em;
@@ -45,7 +42,6 @@
     .table-section div,
     .dynamic-section div {
       margin-bottom: 20px;
-      /* Consistent spacing between sections/groups */
     }
 
     label {
@@ -55,6 +51,52 @@
       color: #555;
     }
 
+    .inline-label {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+
+    .margin-top-15 {
+      margin-top: 15px;
+    }
+
+    .margin-top-30 {
+      margin-top: 30px;
+    }
+
+    .margin-top-40 {
+      margin-top: 40px;
+    }
+
+    .within-container {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 6px;
+    }
+
+    .drag-item {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background: #6200ee;
+      color: #fff;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 60px;
+      margin-right: 20px;
+      cursor: grab;
+    }
+
+    .drop-zone {
+      display: inline-block;
+      width: 100px;
+      height: 60px;
+      background: #e9ecef;
+      border-radius: 8px;
+      text-align: center;
+      line-height: 60px;
+    }
+
     input[type="text"],
     input[type="password"],
     input[type="file"],
@@ -62,11 +104,9 @@
       width: 100%;
       padding: 10px 12px;
       margin-bottom: 10px;
-      /* Space below inputs */
       border: 1px solid #ced4da;
       border-radius: 4px;
       box-sizing: border-box;
-      /* Include padding and border in element's total width and height */
       font-size: 1rem;
     }
 
@@ -74,21 +114,16 @@
     input[type="radio"] {
       margin-right: 8px;
       vertical-align: middle;
-      /* Align checkboxes/radios with labels */
     }
 
     input[type="radio"]+label {
       margin-right: 15px;
-      /* Space between radio options */
       display: inline-block;
-      /* Keep labels inline */
       margin-bottom: 0;
-      /* Override block label margin */
     }
 
     button {
       background-color: #007bff;
-      /* Primary button color */
       color: white;
       padding: 10px 20px;
       border: none;
@@ -97,17 +132,14 @@
       font-size: 1rem;
       transition: background-color 0.2s ease-in-out;
       margin-right: 10px;
-      /* Space between buttons */
     }
 
     button[type="reset"] {
       background-color: #6c757d;
-      /* Secondary button color */
     }
 
     button:hover {
       background-color: #0056b3;
-      /* Darker shade on hover */
     }
 
     button[type="reset"]:hover {
@@ -125,17 +157,15 @@
 
     .error {
       color: #dc3545;
-      /* Bootstrap danger color */
       font-size: 0.9em;
     }
 
-    /* Profile Section Specific Styles */
     .user-profile-section {
       background-color: #e9ecef;
-      /* Light background for emphasis */
       border: none;
-      /* Remove default border */
       border-radius: 6px;
+      padding: 5px 20px 10px 20px;
+      margin-top: 20px;
     }
 
     .user-profile-section p {
@@ -146,7 +176,6 @@
       color: #495057;
     }
 
-    /* Table Styles */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -162,16 +191,13 @@
 
     th {
       background-color: #e9ecef;
-      /* Light grey header */
       font-weight: 600;
     }
 
     tbody tr:nth-child(odd) {
       background-color: #f8f9fa;
-      /* Zebra striping */
     }
 
-    /* Dynamic Search Styles */
     #dynamic-search {
       margin-bottom: 15px;
     }
@@ -194,64 +220,335 @@
     ul[data-testid="search-results"] li:last-child {
       border-bottom: none;
     }
+
+    .success {
+      color: #28a745;
+      font-size: 0.9em;
+    }
+
+    .traversal-demo {
+      border: 2px solid #007bff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    .traversal-demo .parent {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .traversal-demo .child {
+      background-color: #f3e5f5;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .traversal-demo .sibling {
+      background-color: #fff3e0;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .chaining-demo {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .status-indicator {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+
+    .status-indicator.green {
+      background-color: #28a745;
+    }
+
+    .status-indicator.red {
+      background-color: #dc3545;
+    }
+
+    .complex-form {
+      border: 1px solid #dee2e6;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #f8f9fa;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .form-row>div {
+      flex: 1;
+    }
+
+    input[type="email"],
+    input[type="url"],
+    input[type="tel"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      width: 200px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -100px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      font-size: 0.8em;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .traversal-test-button {
+      margin: 5px 5px;
+    }
   </style>
 </head>
 
 <body>
   <div class="container"> <!-- Boxed layout container -->
     <h1>Ukážka interakcie Cypress</h1>
-    <form data-testid="login-form">
-      <div data-testid="input-fields"> <!-- Container for input fields -->
-        <h2>Prihlasovacie údaje</h2> <!-- Section heading -->
-        <!-- Input Fields -->
+
+    <!-- Expanded Login Form with Advanced Validation -->
+    <form data-testid="login-form" id="login-form">
+      <div data-testid="input-fields">
+        <h2>Prihlasovacie údaje</h2>
         <div>
           <label for="username">Používateľské meno:</label>
-          <input data-testid="username-input" type="text" id="username"
-            placeholder="Zadajte svoje používateľské meno" />
+          <input data-testid="username-input" type="text" id="username" placeholder="Zadajte svoje používateľské meno">
         </div>
         <div>
           <label for="password">Heslo:</label>
-          <input data-testid="password-input" type="password" id="password" placeholder="Zadajte svoje heslo" />
+          <input data-testid="password-input" type="password" id="password" placeholder="Zadajte svoje heslo">
         </div>
       </div>
-
-      <div data-testid="dropdown-section"> <!-- Container for dropdown -->
-        <h2>Nastavenia</h2> <!-- Section heading -->
-        <!-- Dropdown -->
+      <div data-testid="dropdown-section">
+        <h2>Nastavenia</h2>
         <div>
           <label for="role">Rola:</label>
           <select data-testid="role-select" id="role">
+            <option value="">--Vyberte rolu--</option>
             <option value="user">Používateľ</option>
             <option value="admin">Administrátor</option>
             <option value="superadmin">Super Administrátor</option>
           </select>
         </div>
       </div>
-
-      <div data-testid="selection-controls"> <!-- Container for checkboxes and radio buttons -->
-        <!-- Checkboxes and Radio Buttons -->
+      <div data-testid="selection-controls">
         <div>
-          <input data-testid="accept-terms" type="checkbox" id="accept-terms" />
-          <label for="accept-terms" style="display: inline-block; margin-bottom: 0;">Súhlasím s podmienkami</label>
-          <!-- Inline label for checkbox -->
+          <input data-testid="accept-terms" type="checkbox" id="accept-terms">
+          <label for="accept-terms" class="inline-label">Súhlasím s podmienkami</label>
         </div>
-        <div style="margin-top: 15px;"> <!-- Add margin top for spacing -->
-          <label>Pohlavie:</label> <!-- Group label -->
-          <input data-testid="gender-male" type="radio" id="gender-male" name="gender" value="male" />
+        <div class="margin-top-15">
+          <label>Pohlavie:</label>
+          <input data-testid="gender-male" type="radio" id="gender-male" name="gender" value="male">
           <label for="gender-male">Muž</label>
-          <input data-testid="gender-female" type="radio" id="gender-female" name="gender" value="female" />
+          <input data-testid="gender-female" type="radio" id="gender-female" name="gender" value="female">
           <label for="gender-female">Žena</label>
         </div>
       </div>
-
-      <div data-testid="form-actions"> <!-- Container for buttons -->
-        <!-- Buttons -->
+      <div data-testid="form-actions">
         <div>
           <button data-testid="submit-button" type="submit">Odoslať</button>
           <button data-testid="reset-button" type="reset">Resetovať</button>
         </div>
       </div>
+      <div data-testid="form-feedback">
+        <p data-testid="error-message" class="error hidden"></p>
+        <p data-testid="success-message" class="success hidden">Prihlásenie úspešné!</p>
+      </div>
     </form>
+
+    <!-- File Upload Demo -->
+    <div data-testid="file-upload-section" class="margin-top-40">
+      <h2>Nahrajte súbor</h2>
+      <input data-testid="file-upload" type="file" id="file-upload">
+      <p data-testid="file-upload-feedback" class="success hidden"></p>
+    </div>
+
+    <!-- Disabled Button Demo -->
+    <div data-testid="disabled-demo" class="margin-top-30">
+      <h2>Zakázané tlačidlo</h2>
+      <button data-testid="disabled-button" type="button" disabled>Zakázané tlačidlo</button>
+    </div>
+
+    <!-- Keyboard Event Demo -->
+    <div data-testid="keyboard-demo" class="margin-top-30">
+      <h2>Simulácia klávesových udalostí</h2>
+      <input data-testid="keyboard-input" type="text" id="keyboard-input" placeholder="Napíšte a stlačte Enter">
+      <p data-testid="keyboard-feedback" class="success hidden"></p>
+    </div>
+
+    <!-- Trigger/Mouseover Demo -->
+    <div data-testid="trigger-demo" class="margin-top-30">
+      <h2>Hover/Mouseover Demo</h2>
+      <button data-testid="hover-button" type="button">Nadíďte myšou</button>
+      <span data-testid="hover-feedback" class="success hidden">Hover detegovaný!</span>
+    </div>
+
+    <!-- Within Demo -->
+    <div data-testid="within-demo" class="margin-top-30">
+      <h2>within() Demo</h2>
+      <div data-testid="within-container" class="within-container">
+        <input data-testid="within-input" type="text" placeholder="Len v tomto kontejnery">
+        <button data-testid="within-button" type="button">Klikni ma</button>
+        <span data-testid="within-feedback" class="success hidden">Kliknutie v kontejnery!</span>
+      </div>
+    </div>
+
+    <!-- Real Events Plugin Demo (visual only) -->
+    <div data-testid="real-events-demo" class="margin-top-30">
+      <h2>Real Events Plugin Demo</h2>
+      <div data-testid="drag-item" class="drag-item">Drag</div>
+      <div data-testid="drop-zone" class="drop-zone">Drop</div>
+      <span data-testid="drag-feedback" class="success hidden">Drag &amp; drop detegované!</span>
+    </div>
+
+    <!-- CSS Selector Examples & DOM Traversal Demo -->
+    <div data-testid="traversal-demo" class="traversal-demo margin-top-40">
+      <h2>DOM Traversal Examples</h2>
+      <div data-testid="parent-element" class="parent">
+        Parent Element
+        <div data-testid="first-child" class="child">First Child</div>
+        <div data-testid="second-child" class="child">Second Child</div>
+        <div data-testid="third-child" class="child">Third Child</div>
+      </div>
+      <div data-testid="sibling-container">
+        <div data-testid="first-sibling" class="sibling">First Sibling</div>
+        <div data-testid="target-sibling" class="sibling">Target Sibling</div>
+        <div data-testid="next-sibling" class="sibling">Next Sibling</div>
+      </div>
+      <button data-testid="traversal-test-button" class="traversal-test-button" type="button">Test Traversal</button>
+      <span data-testid="traversal-result" class="success hidden"></span>
+    </div>
+
+    <!-- Complex Form Examples -->
+    <div data-testid="complex-form-section" class="margin-top-40">
+      <h2>Complex Form Interactions</h2>
+      <form data-testid="complex-form" class="complex-form">
+        <div class="form-row">
+          <div>
+            <label for="email">Email:</label>
+            <input data-testid="email-input" type="email" id="email" placeholder="user@example.com">
+          </div>
+          <div>
+            <label for="website">Website:</label>
+            <input data-testid="url-input" type="url" id="website" placeholder="https://example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="phone">Telefón:</label>
+            <input data-testid="tel-input" type="tel" id="phone" placeholder="+421 900 123 456">
+          </div>
+          <div>
+            <label for="birthdate">Dátum narodenia:</label>
+            <input data-testid="date-input" type="date" id="birthdate">
+          </div>
+        </div>
+        <div>
+          <label for="country">Krajina:</label>
+          <select data-testid="country-select" id="country">
+            <option value="">--Vyberte krajinu--</option>
+            <option value="sk">Slovensko</option>
+            <option value="cz">Česká republika</option>
+            <option value="pl">Poľsko</option>
+            <option value="hu">Maďarsko</option>
+          </select>
+        </div>
+        <div class="margin-top-15">
+          <label for="experience">Skúsenosti (roky):</label>
+          <select data-testid="experience-select" id="experience" multiple>
+            <option value="1">1 rok</option>
+            <option value="2-3">2-3 roky</option>
+            <option value="4-5">4-5 rokov</option>
+            <option value="5+">5+ rokov</option>
+          </select>
+        </div>
+        <div class="margin-top-15">
+          <label>Preferované technológie:</label>
+          <input data-testid="tech-javascript" type="checkbox" id="tech-javascript" value="javascript">
+          <label for="tech-javascript" class="inline-label">JavaScript</label>
+          <input data-testid="tech-python" type="checkbox" id="tech-python" value="python">
+          <label for="tech-python" class="inline-label">Python</label>
+          <input data-testid="tech-java" type="checkbox" id="tech-java" value="java">
+          <label for="tech-java" class="inline-label">Java</label>
+        </div>
+        <button data-testid="complex-submit" type="submit">Odoslať komplexný formulár</button>
+        <button data-testid="complex-reset" type="reset">Vymazať</button>
+        <div data-testid="complex-form-feedback">
+          <p data-testid="complex-error" class="error hidden"></p>
+          <p data-testid="complex-success" class="success hidden">Komplexný formulár odoslaný!</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Input Clear Demo -->
+    <div data-testid="clear-demo" class="margin-top-30">
+      <h2>Clear Input Demo</h2>
+      <input data-testid="clear-input" type="text" id="clear-input" placeholder="Napíšte text a vymazání ho"
+        value="Predvolený text">
+      <button data-testid="clear-button" type="button">Vymazať vstup</button>
+      <span data-testid="clear-feedback" class="success hidden"></span>
+    </div>
+
+    <!-- Chaining Commands Demo -->
+    <div data-testid="chaining-demo" class="chaining-demo margin-top-30">
+      <h2>Command Chaining Examples</h2>
+      <div>
+        <input data-testid="chain-input" type="text" placeholder="Test chaining commands">
+        <button data-testid="chain-button" type="button">Process</button>
+        <span data-testid="chain-status" class="status-indicator red"></span>
+        <span data-testid="chain-result" class="hidden">Success!</span>
+      </div>
+    </div>
+
+    <!-- Tooltip Demo -->
+    <div data-testid="tooltip-demo" class="margin-top-30">
+      <h2>Tooltip Interaction</h2>
+      <div class="tooltip" data-testid="tooltip-container">
+        <button data-testid="tooltip-button" type="button">Hover for tooltip</button>
+        <span data-testid="tooltip-text" class="tooltip-text">This is a tooltip message!</span>
+      </div>
+    </div>
 
     <!-- Section for demonstrating within() -->
     <div data-testid="user-profile-section" class="user-profile-section"> <!-- Added class -->
@@ -259,8 +556,8 @@
       <p><strong>Meno:</strong> <span data-testid="profile-name">Ján Novák</span></p>
       <p><strong>Email:</strong> <span data-testid="profile-email">jan.novak@example.com</span></p>
       <div data-testid="profile-actions">
-        <button data-testid="edit-profile-button">Upraviť profil</button>
-        <button data-testid="view-history-button">Zobraziť históriu</button>
+        <button type="button" data-testid="edit-profile-button">Upraviť profil</button>
+        <button type="button" data-testid="view-history-button">Zobraziť históriu</button>
       </div>
     </div>
 
@@ -269,13 +566,13 @@
       <h2>Ostatné prvky</h2> <!-- Section heading -->
       <div>
         <p data-testid="hidden-message" class="hidden">Toto je skrytá správa.</p>
-        <button data-testid="disabled-button" disabled>Zakázané tlačidlo</button>
+        <button type="button" data-testid="disabled-button" disabled>Zakázané tlačidlo</button>
       </div>
 
       <!-- File Upload -->
       <div>
-        <label for="file-upload">Nahrať súbor:</label>
-        <input data-testid="file-upload" type="file" id="file-upload" />
+        <label for="file-upload-2">Nahrať súbor:</label>
+        <input data-testid="file-upload-2" type="file" id="file-upload-2">
       </div>
     </div>
 
@@ -308,7 +605,7 @@
       <h2>Dynamické vyhľadávanie</h2> <!-- Section heading -->
       <div>
         <label for="dynamic-search">Hľadať:</label>
-        <input data-testid="dynamic-search" type="text" id="dynamic-search" placeholder="Hľadať..." />
+        <input data-testid="dynamic-search" type="text" id="dynamic-search" placeholder="Hľadať...">
         <ul data-testid="search-results">
           <li>Alice</li>
           <li>Bob</li>
@@ -320,10 +617,9 @@
   </div> <!-- End of container -->
 
   <script>
-    // JavaScript for dynamic interaction (no changes needed here)
+    // Dynamic search bar
     const searchInput = document.querySelector('[data-testid="dynamic-search"]');
     const searchResults = document.querySelector('[data-testid="search-results"]');
-
     searchInput.addEventListener('input', (event) => {
       const query = event.target.value.toLowerCase();
       const items = searchResults.querySelectorAll('li');
@@ -335,6 +631,166 @@
         }
       });
     });
+
+    // Advanced form validation and feedback
+    const loginForm = document.getElementById('login-form');
+    const errorMsg = document.querySelector('[data-testid="error-message"]');
+    const successMsg = document.querySelector('[data-testid="success-message"]');
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      errorMsg.classList.add('hidden');
+      successMsg.classList.add('hidden');
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const role = document.getElementById('role').value;
+      const acceptTerms = document.getElementById('accept-terms').checked;
+      const genderMale = document.getElementById('gender-male').checked;
+      const genderFemale = document.getElementById('gender-female').checked;
+      if (!username || !password || !role || !acceptTerms || (!genderMale && !genderFemale)) {
+        errorMsg.textContent = "Vyplňte všetky polia, vyberte rolu, pohlavie a súhlaste s podmienkami.";
+        errorMsg.classList.remove('hidden');
+        return;
+      }
+      successMsg.classList.remove('hidden');
+    });
+    loginForm.addEventListener('reset', function () {
+      errorMsg.classList.add('hidden');
+      successMsg.classList.add('hidden');
+    });
+
+    // File upload feedback
+    const fileUpload = document.getElementById('file-upload');
+    const fileFeedback = document.querySelector('[data-testid="file-upload-feedback"]');
+    fileUpload.addEventListener('change', function () {
+      if (fileUpload.files.length > 0) {
+        fileFeedback.textContent = `Súbor "${fileUpload.files[0].name}" bol vybraný.`;
+        fileFeedback.classList.remove('hidden');
+      } else {
+        fileFeedback.classList.add('hidden');
+      }
+    });
+
+    // Keyboard event demo
+    const keyboardInput = document.getElementById('keyboard-input');
+    const keyboardFeedback = document.querySelector('[data-testid="keyboard-feedback"]');
+    keyboardInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        keyboardFeedback.textContent = `Stlačili ste Enter: "${keyboardInput.value}"`;
+        keyboardFeedback.classList.remove('hidden');
+        setTimeout(() => keyboardFeedback.classList.add('hidden'), 2000);
+      }
+    });
+
+    // Hover/trigger demo
+    const hoverButton = document.querySelector('[data-testid="hover-button"]');
+    const hoverFeedback = document.querySelector('[data-testid="hover-feedback"]');
+    hoverButton.addEventListener('mouseover', function () {
+      hoverFeedback.classList.remove('hidden');
+    });
+    hoverButton.addEventListener('mouseleave', function () {
+      hoverFeedback.classList.add('hidden');
+    });
+
+    // within() demo
+    const withinContainer = document.querySelector('[data-testid="within-container"]');
+    const withinButton = withinContainer.querySelector('[data-testid="within-button"]');
+    const withinFeedback = withinContainer.querySelector('[data-testid="within-feedback"]');
+    withinButton.addEventListener('click', function () {
+      withinFeedback.classList.remove('hidden');
+      setTimeout(() => withinFeedback.classList.add('hidden'), 1500);
+    });
+
+    // Real events plugin demo (visual only, for Cypress test)
+    const dragItem = document.querySelector('[data-testid="drag-item"]');
+    const dropZone = document.querySelector('[data-testid="drop-zone"]');
+    const dragFeedback = document.querySelector('[data-testid="drag-feedback"]');
+    // For Cypress real events plugin test, the test will trigger realMouseDown/realMouseUp
+    // Here, we just show feedback if user clicks both in sequence
+    let dragStarted = false;
+    dragItem.addEventListener('mousedown', function () {
+      dragStarted = true;
+    });
+    dropZone.addEventListener('mouseup', function () {
+      if (dragStarted) {
+        dragFeedback.classList.remove('hidden');
+        setTimeout(() => dragFeedback.classList.add('hidden'), 1500);
+        dragStarted = false;
+      }
+    });
+
+    // DOM Traversal demo
+    const traversalButton = document.querySelector('[data-testid="traversal-test-button"]');
+    const traversalResult = document.querySelector('[data-testid="traversal-result"]');
+    traversalButton.addEventListener('click', function () {
+      const parent = document.querySelector('[data-testid="parent-element"]');
+      const childrenCount = parent.children.length;
+      traversalResult.textContent = `Parent has ${childrenCount} children elements`;
+      traversalResult.classList.remove('hidden');
+      setTimeout(() => traversalResult.classList.add('hidden'), 3000);
+    });
+
+    // Complex form validation
+    const complexForm = document.querySelector('[data-testid="complex-form"]');
+    const complexError = document.querySelector('[data-testid="complex-error"]');
+    const complexSuccess = document.querySelector('[data-testid="complex-success"]');
+    complexForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      complexError.classList.add('hidden');
+      complexSuccess.classList.add('hidden');
+
+      const email = document.getElementById('email').value.trim();
+      const website = document.getElementById('website').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const birthdate = document.getElementById('birthdate').value;
+      const country = document.getElementById('country').value;
+      const techCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+      if (!email || !website || !phone || !birthdate || !country || techCheckboxes.length === 0) {
+        complexError.textContent = "Vyplňte všetky polia a vyberte aspoň jednu technológiu.";
+        complexError.classList.remove('hidden');
+        return;
+      }
+
+      complexSuccess.classList.remove('hidden');
+    });
+
+    // Clear input demo
+    const clearInput = document.querySelector('[data-testid="clear-input"]');
+    const clearButton = document.querySelector('[data-testid="clear-button"]');
+    const clearFeedback = document.querySelector('[data-testid="clear-feedback"]');
+    clearButton.addEventListener('click', function () {
+      clearInput.value = '';
+      clearFeedback.textContent = 'Input cleared!';
+      clearFeedback.classList.remove('hidden');
+      setTimeout(() => clearFeedback.classList.add('hidden'), 2000);
+    });
+
+    // Command chaining demo
+    const chainInput = document.querySelector('[data-testid="chain-input"]');
+    const chainButton = document.querySelector('[data-testid="chain-button"]');
+    const chainStatus = document.querySelector('[data-testid="chain-status"]');
+    const chainResult = document.querySelector('[data-testid="chain-result"]');
+    chainButton.addEventListener('click', function () {
+      const value = chainInput.value.trim();
+      if (value.length > 0) {
+        chainStatus.className = 'status-indicator green';
+        chainResult.classList.remove('hidden');
+        setTimeout(() => {
+          chainResult.classList.add('hidden');
+          chainStatus.className = 'status-indicator red';
+        }, 2000);
+      }
+    });
+
+    // Additional file upload for second input
+    const fileUpload2 = document.getElementById('file-upload-2');
+    if (fileUpload2) {
+      fileUpload2.addEventListener('change', function () {
+        if (fileUpload2.files.length > 0) {
+          console.log(`Second file upload: "${fileUpload2.files[0].name}"`);
+        }
+      });
+    }
   </script>
 </body>
 

@@ -58,7 +58,7 @@
 
   <div class="obal">
     <h1 id="nadpis">Vitaj na stránke</h1>
-    <p class="popis">Toto je jednoduchý príklad</p>
+    <p data-testid="popis-cislo1" class="popis">Toto je jednoduchý príklad</p>
     <p class="popis">manipulácie s DOM.</p>
 
     <button id="zmenNadpis">Zmeň nadpis</button>
@@ -102,6 +102,8 @@
         vystup.innerText = `Ahoj, ${meno}!`
         vystup.style.color = "green"
       }
+
+      meno.innerText = "Dsadasasdasdasdas"
     })
 
     function nastavHeslo() {

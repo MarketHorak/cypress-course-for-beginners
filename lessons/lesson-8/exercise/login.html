@@ -2,31 +2,55 @@
 <html lang="sk">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Prihlásenie - Demo Aplikácia</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div class="login-container" data-testid="login-container"> <!-- Added data-testid for within() -->
+  <div class="login-container boxed-layout" data-testid="login-container">
     <h1 data-testid="page-title">Prihlásenie</h1>
     <form data-testid="login-form" id="login-form">
-      <div class="form-group" data-testid="username-group"> <!-- Added data-testid for find() -->
-        <label for="username">Používateľské meno:</label>
-        <input data-testid="username-input" type="text" id="username" name="username"
+      <div class="form-group" data-testid="username-group">
+        <label for="username" class="form-label">Používateľské meno:</label>
+        <input data-testid="username-input" type="text" id="username" name="username" class="input form-input"
           placeholder="Zadajte používateľské meno" required>
       </div>
-      <div class="form-group" data-testid="password-group"> <!-- Added data-testid for find() -->
-        <label for="password">Heslo:</label>
-        <input type="password" id="password" name="password" placeholder="Zadajte heslo">
+      <div class="form-group" data-testid="password-group">
+        <label for="password" class="form-label">Heslo:</label>
+        <input data-testid="password-input" type="password" id="password" name="password" class="input form-input"
+          placeholder="Zadajte heslo" required>
+        <div class="margin-top-8 flex-row align-center">
+          <input data-testid="show-password" type="checkbox" id="show-password" class="checkbox">
+          <label for="show-password" class="form-label">Zobraziť heslo</label>
+        </div>
       </div>
-      <div class="button-group" data-testid="action-buttons"> <!-- Added data-testid for find() -->
-        <button data-testid="login-button" type="submit">Prihlásiť</button>
-        <button data-testid="reset-button" type="reset">Vymazať</button>
+      <div class="form-group" data-testid="role-group">
+        <label for="role" class="form-label">Rola:</label>
+        <select data-testid="role-select" id="role" name="role" class="input select">
+          <option value="">--Vyberte rolu--</option>
+          <option value="user">Používateľ</option>
+          <option value="admin">Administrátor</option>
+        </select>
+      </div>
+      <div class="form-group" data-testid="remember-group">
+        <div class="flex-row align-center">
+          <input data-testid="remember-me" type="checkbox" id="remember-me" name="remember" class="checkbox">
+          <label for="remember-me" class="form-label">Zapamätať si ma</label>
+        </div>
+      </div>
+      <div class="button-group" data-testid="action-buttons">
+        <div class="tooltip flex-row">
+          <button data-testid="login-button" type="submit" id="login-button" disabled
+            class="btn btn-primary">Prihlásiť</button>
+          <span data-testid="login-tooltip" class="tooltip-text">Prihláste sa do systému</span>
+        </div>
+        <button data-testid="reset-button" type="reset" class="btn btn-secondary">Vymazať</button>
+        <button data-testid="disabled-demo" type="button" disabled class="btn btn-disabled">Zakázané</button>
       </div>
     </form>
-    <div data-testid="message-area"> <!-- Container for messages, useful for within() -->
+    <div data-testid="message-area">
       <div data-testid="error-message" class="error hidden"></div>
       <div data-testid="success-message" class="success hidden">Prihlásenie úspešné! Presmerovanie...</div>
     </div>
@@ -36,40 +60,56 @@
     const loginForm = document.getElementById('login-form');
     const errorMsg = document.querySelector('[data-testid="error-message"]');
     const successMsg = document.querySelector('[data-testid="success-message"]');
+    const loginButton = document.getElementById('login-button');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const showPassword = document.getElementById('show-password');
+    const roleSelect = document.getElementById('role');
+    const rememberMe = document.getElementById('remember-me');
 
     const VALID_CREDENTIALS = {
       username: "user",
       password: "pass"
     };
 
+    function updateLoginButtonState() {
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+      loginButton.disabled = !(username && password);
+    }
+
+    usernameInput.addEventListener('input', updateLoginButtonState);
+    passwordInput.addEventListener('input', updateLoginButtonState);
+
+    if (showPassword) {
+      showPassword.addEventListener('change', function () {
+        passwordInput.type = showPassword.checked ? 'text' : 'password';
+      });
+    }
+
     loginForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+      const role = roleSelect.value;
+      const remember = rememberMe.checked;
 
-      // Clear previous messages
       errorMsg.classList.add('hidden');
       successMsg.classList.add('hidden');
-      errorMsg.textContent = ''; // Clear text content as well
+      errorMsg.textContent = '';
 
-      // Validate empty fields
-      if (!username || !password) {
-        errorMsg.textContent = "Vyplňte prosím všetky povinné polia";
+      if (!username || !password || !role) {
+        errorMsg.textContent = "Vyplňte prosím všetky povinné polia a vyberte rolu";
         errorMsg.classList.remove('hidden');
         return;
       }
 
-      // Validate credentials
       if (username === VALID_CREDENTIALS.username &&
         password === VALID_CREDENTIALS.password) {
         successMsg.classList.remove('hidden');
-
-        // Simulate redirect after successful login
         setTimeout(() => {
-          // In a real app, you might redirect or update UI
-          // For demo, just keep the success message
-          window.location.href = "dashboard.html"; // Keep redirect for lesson context
+          window.location.href = "dashboard.html";
         }, 1000);
       } else {
         errorMsg.textContent = "Nesprávne prihlasovacie údaje";
@@ -77,12 +117,19 @@
       }
     });
 
-    // Form reset handler
     loginForm.addEventListener('reset', function () {
       errorMsg.classList.add('hidden');
       successMsg.classList.add('hidden');
       errorMsg.textContent = '';
+      loginButton.disabled = true;
+      if (roleSelect) roleSelect.value = '';
+      if (rememberMe) rememberMe.checked = false;
+      if (showPassword) showPassword.checked = false;
+      if (passwordInput) passwordInput.type = 'password';
     });
+
+    // Initialize button state on page load
+    updateLoginButtonState();
   </script>
 </body>
 

@@ -9,65 +9,88 @@
 </head>
 
 <body>
-  <div class="dashboard-container" data-testid="dashboard-container"> <!-- Container for within() -->
-    <h1 data-testid="dashboard-title">Nástenka</h1> <!-- Example for should('be.visible') -->
+  <div class="dashboard-container boxed-layout" data-testid="dashboard-container">
+    <div class="header-row flex-row align-center space-between">
+      <h1 data-testid="dashboard-title" class="title">Nástenka</h1>
+    </div>
     <p data-testid="welcome-message" class="welcome-message">Vitaj, <span data-testid="username">demoUser</span>!</p>
-    <!-- Example for should('contain', 'Vitaj') -->
 
     <!-- Status Section -->
-    <div class="status-section" data-testid="status-section">
+    <div class="status-section card" data-testid="status-section">
       <h2>Stav Systému</h2>
       <span data-testid="system-status" class="status-indicator status-active">Aktívny</span>
-      <!-- Example for should('have.text', 'Aktívny') -->
-      <div data-testid="custom-attribute-div" data-custom-attr="exampleValue123" style="margin-top: 10px;">Div s
-        vlastným atribútom</div> <!-- Example for should('have.attr', 'data-custom-attr', 'exampleValue123') -->
+      <div data-testid="custom-attribute-div" data-custom-attr="exampleValue123" class="margin-top-10">Div s vlastným
+        atribútom</div>
+      <div class="margin-top-15 flex-row align-center" data-testid="user-status-group">
+        <label class="form-label">Používateľský stav:</label>
+        <input data-testid="status-active" type="radio" id="status-active" name="user-status" value="active" checked
+          class="radio">
+        <label for="status-active" class="radio-label">Aktívny</label>
+        <input data-testid="status-inactive" type="radio" id="status-inactive" name="user-status" value="inactive"
+          class="radio">
+        <label for="status-inactive" class="radio-label">Neaktívny</label>
+      </div>
     </div>
 
     <!-- Search Section - Container for within() -->
-    <div class="search-section" data-testid="search-section">
+    <div class="search-section card" data-testid="search-section">
       <h2>Vyhľadávanie</h2>
-      <label for="search-input">Vyhľadať položky:</label>
-      <input data-testid="search-input" type="text" id="search-input" placeholder="Píšte pre filtrovanie položiek...">
-      <!-- Example for should('have.attr', 'placeholder', '...') -->
+      <div class="form-row flex-row align-center">
+        <label for="search-input" class="form-label">Vyhľadať položky:</label>
+        <input data-testid="search-input" type="text" id="search-input" class="input form-input search-input"
+          placeholder="Píšte pre filtrovanie položiek...">
+        <select data-testid="category-select" id="category-select" class="input select margin-left-10">
+          <option value="">--Vyberte kategóriu--</option>
+          <option value="all">Všetky</option>
+          <option value="active">Aktívne</option>
+          <option value="inactive">Neaktívne</option>
+        </select>
+      </div>
     </div>
 
     <!-- Items Section - Container for within() -->
-    <div class="items-section" data-testid="items-section">
+    <div class="items-section card" data-testid="items-section">
       <h2>Zoznam položiek</h2>
-      <span data-testid="item-count" class="item-count"></span> <!-- Example for expect() assertion -->
+      <span data-testid="item-count" class="item-count"></span>
       <p data-testid="no-results-message" class="hidden">Žiadne položky nespĺňajú kritériá vyhľadávania.</p>
-      <!-- Example for conditional assertion with then() -->
-      <ul data-testid="items-list" id="items-list">
-        <!-- Items will be dynamically inserted here, find() can target li elements -->
-      </ul>
+      <ul data-testid="items-list" id="items-list"></ul>
+      <div class="margin-top-15 flex-row align-center">
+        <label for="file-upload-dashboard" class="form-label">Nahrať súbor:</label>
+        <input data-testid="file-upload-dashboard" type="file" id="file-upload-dashboard"
+          class="input file-input form-input">
+      </div>
     </div>
 
     <!-- Table Section - Container for within() -->
-    <div class="table-section" data-testid="table-section">
+    <div class="table-section card" data-testid="table-section">
       <h2>Údaje v tabuľke</h2>
       <table data-testid="data-table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Názov</th>
-            <th>Aktívny</th>
+            <th data-testid="th-id" class="tooltip">ID
+              <span data-testid="th-tooltip" class="tooltip-text">Identifikátor položky</span>
+            </th>
+            <th data-testid="th-name">Názov</th>
+            <th data-testid="th-active">Aktívny</th>
           </tr>
         </thead>
-        <tbody data-testid="table-body">
-          <!-- Table rows will be dynamically inserted here, find() can target tr/td -->
-        </tbody>
+        <tbody data-testid="table-body"></tbody>
       </table>
+      <div class="margin-top-15 flex-row align-center">
+        <input data-testid="disabled-input" type="text" id="disabled-input" value="Disabled" disabled
+          class="input form-input disabled-input">
+      </div>
     </div>
 
     <!-- Interactive Elements Section - Container for within() -->
-    <div class="interactive-elements-section" data-testid="interactive-elements-section">
+    <div class="interactive-elements-section card" data-testid="interactive-elements-section">
       <h2>Interaktívne prvky</h2>
-      <div>
-        <input type="checkbox" id="checkbox1" data-testid="checkbox1">
-        <label for="checkbox1">Len Aktivne</label> <!-- find() can target this label -->
+      <div class="flex-row align-center">
+        <input type="checkbox" id="checkbox1" data-testid="checkbox1" class="checkbox">
+        <label for="checkbox1" class="form-label">Len Aktivne</label>
       </div>
-      <div style="margin-top: 10px;">
-        <button data-testid="disabled-button" disabled>Zakázané tlačidlo</button> <!-- find() can target this button -->
+      <div class="margin-top-10 flex-row align-center">
+        <button data-testid="disabled-button" type="button" disabled class="btn btn-disabled">Zakázané tlačidlo</button>
       </div>
     </div>
   </div>

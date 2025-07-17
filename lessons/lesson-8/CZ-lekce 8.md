@@ -56,7 +56,7 @@ Chai je populární knihovna pro aserce v JavaScriptu, která nabízí různé s
     ```javascript
     cy.get('[data-testid="login-button"]').should('exist');
     ```
-    **Použijte, když:** Chcete ověřit, že prvek byl vykreslen.
+    ##### **Použijte, když:** Chcete ověřit, že prvek byl vykreslen.
     ---
 
     **2. `should('be.visible')`**

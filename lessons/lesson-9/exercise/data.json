@@ -2,43 +2,93 @@
   {
     "address": "123 Main St",
     "ruian_code": "RU123",
-    "available_technologies": [
-      "Fiber",
-      "DSL"
-    ]
+    "available_technologies": ["Fiber", "DSL"],
+    "city": "Springfield",
+    "zip": "10001",
+    "owner": "John Doe",
+    "last_updated": "2025-07-01"
   },
   {
     "address": "456 Elm St",
     "ruian_code": "RU456",
-    "available_technologies": [
-      "Cable",
-      "Fiber"
-    ]
+    "available_technologies": ["Cable", "Fiber"],
+    "city": "Springfield",
+    "zip": "10002",
+    "owner": "Jane Smith",
+    "last_updated": "2025-06-15"
   },
   {
     "address": "789 Oak St",
     "ruian_code": "RU789",
-    "available_technologies": [
-      "DSL",
-      "Satellite"
-    ]
+    "available_technologies": ["DSL", "Satellite"],
+    "city": "Shelbyville",
+    "zip": "20001",
+    "owner": "Alice Johnson",
+    "last_updated": "2025-05-20"
   },
   {
     "address": "123 Oak St",
     "ruian_code": "RU799",
-    "available_technologies": [
-      "DSL",
-      "Satellite"
-    ]
+    "available_technologies": ["DSL", "Satellite"],
+    "city": "Shelbyville",
+    "zip": "20002",
+    "owner": "Bob Brown",
+    "last_updated": "2025-07-10"
   },
   {
     "address": "999 Elm St",
     "ruian_code": "RU999",
-    "available_technologies": [
-      "Cable",
-      "Fiber",
-      "DSL",
-      "Satellite"
-    ]
+    "available_technologies": ["Cable", "Fiber", "DSL", "Satellite"],
+    "city": "Ogdenville",
+    "zip": "30001",
+    "owner": "Carol White",
+    "last_updated": "2025-07-15"
+  },
+  {
+    "address": "321 Maple Ave",
+    "ruian_code": "RU321",
+    "available_technologies": ["Fiber", "5G"],
+    "city": "North Haverbrook",
+    "zip": "40001",
+    "owner": "David Black",
+    "last_updated": "2025-06-30"
+  },
+  {
+    "address": "654 Pine St",
+    "ruian_code": "RU654",
+    "available_technologies": ["DSL", "Cable", "5G"],
+    "city": "Springfield",
+    "zip": "10003",
+    "owner": "Eve Green",
+    "last_updated": "2025-07-12"
+  },
+  {
+    "address": "888 Birch Rd",
+    "ruian_code": "RU888",
+    "available_technologies": ["Satellite"],
+    "city": "Ogdenville",
+    "zip": "30002",
+    "owner": "Frank Blue",
+    "last_updated": "2025-07-16"
+  },
+  {
+    "address": "777 Cedar Blvd",
+    "ruian_code": "RU777",
+    "available_technologies": ["Fiber", "Cable", "5G"],
+    "city": "North Haverbrook",
+    "zip": "40002",
+    "owner": "Grace Red",
+    "last_updated": "2025-07-17"
+  },
+  {
+    "address": "555 Walnut St",
+    "ruian_code": "RU555",
+    "available_technologies": ["DSL", "Fiber"],
+    "city": "Springfield",
+    "zip": "10004",
+    "owner": "Henry Violet",
+    "last_updated": "2025-07-14"
   }
+
+
 ]

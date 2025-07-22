@@ -1,0 +1,27 @@
+[
+  {
+    "hledanaAdresa": "123 Main St",
+    "ruianKod": "RU123",
+    "ocekavanyPocetAdres": "1"
+  },
+  {
+    "hledanaAdresa": "999 Elm St",
+    "ruianKod": "RU999",
+    "ocekavanyPocetAdres": "1"
+  },
+  {
+    "hledanaAdresa": "555 Walnut St",
+    "ruianKod": "RU555",
+    "ocekavanyPocetAdres": "1"
+  },
+  {
+    "hledanaAdresa": "123",
+    "ruianKod": "RU123",
+    "ocekavanyPocetAdres": "2"
+  },
+  {
+    "hledanaAdresa": "neni",
+    "ruianKod": "",
+    "ocekavanyPocetAdres": "0"
+  }
+]

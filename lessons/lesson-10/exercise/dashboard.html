@@ -19,7 +19,7 @@
       <h2>Stav Systému</h2>
       <span data-testid="system-status" class="status-indicator status-active">Aktívny</span>
       <!-- Example for should('have.text', 'Aktívny') -->
-      <div data-testid="custom-attribute-div" data-custom-attr="exampleValue123" style="margin-top: 10px;">Div s
+      <div data-testid="custom-attribute-div" data-custom-attr="exampleValue123">Div s
         vlastným atribútom</div> <!-- Example for should('have.attr', 'data-custom-attr', 'exampleValue123') -->
     </div>
 
@@ -66,8 +66,9 @@
         <input type="checkbox" id="checkbox1" data-testid="checkbox1">
         <label for="checkbox1">Len Aktivne</label> <!-- find() can target this label -->
       </div>
-      <div style="margin-top: 10px;">
-        <button data-testid="disabled-button" disabled>Zakázané tlačidlo</button> <!-- find() can target this button -->
+      <div>
+        <button type="button" data-testid="disabled-button" disabled>Zakázané tlačidlo</button>
+        <!-- find() can target this button -->
       </div>
     </div>
   </div>
@@ -78,7 +79,8 @@
       { id: 1, name: "Položka Jeden", active: true },
       { id: 2, name: "Položka Dva", active: false },
       { id: 3, name: "Položka Tri", active: true },
-      { id: 4, name: "Položka Štyri", active: false }
+      { id: 4, name: "Položka Štyri", active: false },
+      { id: 22, name: "Položka Dvadsatdva", active: false }
     ];
 
     // DOM Elements

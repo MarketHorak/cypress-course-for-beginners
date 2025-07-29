@@ -65,13 +65,12 @@
    - **Приклад структури директорій:**  
      ```
      cypress/
-     ├── integration/
+     ├── e2e/
      │   ├── login.spec.js
      │   └── registration.spec.js
-     └── support/
-         └── pages/
-             ├── LoginPage.js
-             └── RegistrationPage.js
+     └── pages/
+         ├── LoginPage.js
+         └── RegistrationPage.js
      ```
 
 2. **Інкапсуляція елементів та дій сторінки:**  

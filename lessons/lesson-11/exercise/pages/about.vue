@@ -10,7 +10,8 @@
     <section class="team">
       <h2>Our Team</h2>
       <div class="team-grid">
-        <div v-for="member in team" :key="member.id" class="team-member" :data-testid="`team-member-${member.id}`">
+        <div v-for="member in team" :key="member.id" class="team-member" :id="`${member.id}`"
+          :data-testid="`team-member`">
           <h3 data-testid="member-name">{{ member.name }}</h3>
           <p data-testid="member-role">{{ member.role }}</p>
           <p data-testid="member-description">{{ member.description }}</p>

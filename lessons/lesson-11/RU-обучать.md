@@ -66,13 +66,12 @@
    - **Пример структуры каталогов:**
      ```
      cypress/
-     ├── integration/
+     ├── e2e/
      │   ├── login.spec.js
      │   └── registration.spec.js
-     └── support/
-         └── pages/
-             ├── LoginPage.js
-             └── RegistrationPage.js
+     └── pages/
+         ├── LoginPage.js
+         └── RegistrationPage.js
      ```
 
 2. **Инкапсуляция элементов страницы и действий:**

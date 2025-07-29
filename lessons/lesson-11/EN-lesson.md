@@ -66,11 +66,10 @@ A **design pattern** is a general, reusable solution to a common problem that oc
    - **Example Directory Structure:**
      ```
      cypress/
-     ├── integration/
+     ├── e2e/
      │   ├── login.spec.js
      │   └── registration.spec.js
-     └── support/
-         └── pages/
+     └── pages/
              ├── LoginPage.js
              └── RegistrationPage.js
      ```

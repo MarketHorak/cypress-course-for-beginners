@@ -64,14 +64,13 @@
    - Každá stránka je reprezentována vlastním JavaScriptovým souborem (nebo třídou), který obsahuje selektory a metody pro danou stránku.  
    - **Příklad struktury adresářů:**  
      ```
-     cypress/
-     ├── integration/
-     │   ├── login.spec.js
-     │   └── registration.spec.js
-     └── support/
-         └── pages/
-             ├── LoginPage.js
-             └── RegistrationPage.js
+    cypress/
+      ├── e2e/
+      │   ├── login.spec.js
+      │   └── registration.spec.js
+      └── pages/
+              ├── LoginPage.js
+              └── RegistrationPage.js
      ```
 
 2. **Zapouzdření prvků stránky a akcí:**  

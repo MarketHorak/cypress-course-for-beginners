@@ -10,7 +10,7 @@
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" required @blur="validateEmail" data-testid="email-input" />
+        <input type="email" id="email" v-model="email" required @blur="validateEmail" data-testid="email-inputXXX" />
         <span v-if="emailError" class="error">{{ emailError }}</span>
       </div>
       <div class="form-group">

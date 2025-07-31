@@ -6,7 +6,6 @@ export default class CourseComponent {
   }
 
   nadradenyElement = () => cy.get(`div[data-testid="${this.testid}"]`)
-
   heading = () => this.nadradenyElement().find('h3')
   price = () => this.nadradenyElement().find('.price')
 
@@ -16,18 +15,23 @@ export default class CourseComponent {
 
   commentSection = () => this.nadradenyElement().find('.comments-section')
 
+  addComment(commentText) {
+    this.commentInput().clear().type(commentText)
+
+    this.addCommentButton().click()
+  }
+}
 //   addComment(commentText) {
 //     this.commentInput().clear().type(commentText)
 //     this.addCommentButton().click()
 //   }
 
-addComment(commentText) {
-  this.commentInput()
-    .should('be.visible')
-    .clear()
-    .type(commentText)
-    .then(() => {
-      this.addCommentButton().click()
-    })
-}
-}
+// addComment(commentText) {
+//   this.commentInput()
+//     .should('be.visible')
+//     .clear()
+//     .type(commentText)
+//   this.addCommentButton().click()
+
+// }
+// }

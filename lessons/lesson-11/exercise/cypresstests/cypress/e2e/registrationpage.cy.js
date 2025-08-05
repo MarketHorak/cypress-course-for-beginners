@@ -1,36 +1,49 @@
 import { registrationPage } from "../pages/registrationPage";
 import registrData from "../fixtures/registerUser.json";
+// import menuComponent from "../pages/components/menuComponent"
 
 
 describe("registr tests", () => {
     beforeEach(() => {
-        cy.visit("http://localhost:3000/register")
+        cy.visit("http://localhost:3000")
+        registrationPage.visit()
+
+   // opet jsem vlozila do registrationPage.js a volam viz radek vejs
+   //      menuComponent.pointTo("registr")
+         // misto tohoto 
+        // menuComponent.registr().click()
+             // misto tohoto 
+            // cy.visit("http://localhost:3000/register")
     });
 
-it('should register new user with valid credentials and see account page', () => {
+it('should register with fce from class RegistrationPage', () => {
   // Act
   registrationPage.insertRegisterData(
     registrData.username,
     registrData.email,
     registrData.password
   );
-
-  registrationPage.insertRegisterData().click();
-
-  // Assert
+  registrationPage.registerButton().click();
+    // Assert
   cy.url().should('contain', 'account');
-});
+//   cy.url().should('contain', 'dashboard.html');
+ });
+
+
+
 
 it('should not register new user with invalid credentials and show error message', () => {
   // Act
-  registrationPage.insertRegistrData(
+  registrationPage.insertRegisterData(
     registrData.username,
-    registrData.invalidEmail,
-    registrData.password
+    registrData.wrongemail,
+    registrData.wrongpassword
   );
+//   // Assert
+  cy.contains('Password must contain at least one special character').should('be.visible');
 
-  // Assert
-  cy.contains('Invalid email format').should('be.visible');
+  //   cy.url().should('contain','Password must contain at least one special character')\
+  //  //   cy.contains('Invalid email format').should('be.visible');
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,8 @@
 {
     "username": "tester",
     "email": "blabla@email.cz",
-    "password": "heslo1234@"
+    "password": "heslo1234@",
+
+    "wrongemail": "blabla@emaillll.cz",
+    "wrongpassword": "heslo1234"
 }

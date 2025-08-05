@@ -1,3 +1,9 @@
+
+// nebo bych musela export deafault new class RegistrationPage
+// pak nemusim dole psat export ..bla bla ...nic uz nemusim dole
+
+import menuComponent from "../pages/components/menuComponent"
+
 class RegistrationPage {
 
     heading = () => cy.get('h1');
@@ -21,6 +27,12 @@ class RegistrationPage {
     .clear()
     .type(passwordValue)
     .blur()
+}
+
+// tohle jsem vzala / puvodne v registrationpage.cy.js
+visit() {
+          menuComponent.pointTo("registr")
+  
 }
 
 }

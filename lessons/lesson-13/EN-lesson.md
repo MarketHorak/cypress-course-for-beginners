@@ -62,32 +62,39 @@
 1. **Installing TypeScript and Necessary Typings:**
    - **Installation Commands:**
      ```bash
-     npm install --save-dev typescript @types/node @types/cypress
+     npm install --save-dev cypress typescript @types/node
      ```
    - **Why These Packages?**
      - `typescript`: The TypeScript compiler.
      - `@types/node`: Type definitions for Node.js, necessary for Cypress tasks and Node APIs.
-     - `@types/cypress`: Provides type definitions for Cypress commands, enabling IntelliSense and type checking.
 
 2. **Configuring tsconfig.json for Cypress:**
    - Create a `tsconfig.json` file in the root of your project if one does not exist.
    - **Example tsconfig.json:**
      ```json
-     {
-       "compilerOptions": {
-         "target": "esnext",
-         "module": "esnext",
-         "strict": true,
-         "jsx": "preserve",
-         "moduleResolution": "node",
-         "esModuleInterop": true,
-         "skipLibCheck": true,
-         "forceConsistentCasingInFileNames": true,
-         "types": ["cypress", "node"]
-       },
-       "include": ["**/*.ts", "**/*.tsx", "cypress/**/*.ts"],
-       "exclude": ["node_modules"]
-     }
+      {
+        "compilerOptions": {
+          "target": "ES2020",
+          "module": "ESNext",
+          "lib": ["ES2020", "DOM", "DOM.Iterable"],
+          "allowJs": false,
+          "skipLibCheck": true,
+          "esModuleInterop": false,
+          "allowSyntheticDefaultImports": true,
+          "strict": true,
+          "forceConsistentCasingInFileNames": true,
+          "moduleResolution": "node",
+          "resolveJsonModule": true,
+          "isolatedModules": true,
+          "noEmit": true,
+          "types": ["cypress", "node"]
+        },
+        "include": [
+          "cypress/**/*.ts",
+          "cypress/**/*.tsx"
+        ],
+        "exclude": ["node_modules"]
+      }
      ```
    - **Explanation:**
      - **`target`** and **`module`**: Ensure modern JavaScript output.
@@ -245,7 +252,7 @@
 
 1. **Organizing TypeScript Files:**
    - Keep all your Cypress test files with the `.ts` extension.
-   - Organize your tests in directories such as `cypress/integration` and ensure your `tsconfig.json` includes these paths.
+   - Organize your tests in directories such as `cypress/e2e` and ensure your `tsconfig.json` includes these paths.
    - Store reusable types and interfaces in a separate file (e.g., `cypress/support/types.ts`).
 
 2. **Maintaining Type Safety:**
@@ -262,12 +269,14 @@
    - Provide types for the parameters and return values for better type checking and IntelliSense.
    - **Example Custom Command in TypeScript:**
      ```typescript
-     // cypress/support/commands.ts
-     declare namespace Cypress {
-       interface Chainable {
-         login(username: string, password: string): Chainable<Element>;
-       }
-     }
+      export { }
+      declare global {
+        namespace Cypress {
+          interface Chainable {
+            login(name: string, password: string): Chainable<void>
+          }
+        }
+      }
 
      Cypress.Commands.add('login', (username: string, password: string) => {
        cy.get('[data-testid="login-username-input"]').clear().type(username);
@@ -356,7 +365,7 @@
    - Convert an existing JavaScript test to TypeScript.
 
 2. **Write and Run a Simple Cypress Test in TypeScript:**
-   - Create a test file (e.g., `cypress/integration/login.spec.ts`) that uses type annotations and interfaces.
+   - Create a test file (e.g., `cypress/e2e/login.spec.ts`) that uses type annotations and interfaces.
    - Use custom commands written in TypeScript to perform a login action.
    - Run the test and observe IntelliSense and type checking in action.
 

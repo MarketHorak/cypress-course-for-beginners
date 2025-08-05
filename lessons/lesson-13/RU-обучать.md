@@ -62,32 +62,39 @@
 1. **Установка TypeScript и необходимых типов:**
    - **Команды для установки:**
      ```bash
-     npm install --save-dev typescript @types/node @types/cypress
+     npm install --save-dev cypress typescript @types/node
      ```
    - **Зачем нужны эти пакеты?**
      - `typescript`: Компилятор TypeScript.
      - `@types/node`: Определения типов для Node.js, необходимые для задач Cypress и API Node.
-     - `@types/cypress`: Предоставляет определения типов для команд Cypress, обеспечивая IntelliSense и проверку типов.
 
 2. **Настройка tsconfig.json для Cypress:**
    - Если в корне вашего проекта отсутствует `tsconfig.json`, создайте его.
    - **Пример tsconfig.json:**
      ```json
      {
-       "compilerOptions": {
-         "target": "esnext",
-         "module": "esnext",
-         "strict": true,
-         "jsx": "preserve",
-         "moduleResolution": "node",
-         "esModuleInterop": true,
-         "skipLibCheck": true,
-         "forceConsistentCasingInFileNames": true,
-         "types": ["cypress", "node"]
-       },
-       "include": ["**/*.ts", "**/*.tsx", "cypress/**/*.ts"],
-       "exclude": ["node_modules"]
-     }
+        "compilerOptions": {
+          "target": "ES2020",
+          "module": "ESNext",
+          "lib": ["ES2020", "DOM", "DOM.Iterable"],
+          "allowJs": false,
+          "skipLibCheck": true,
+          "esModuleInterop": false,
+          "allowSyntheticDefaultImports": true,
+          "strict": true,
+          "forceConsistentCasingInFileNames": true,
+          "moduleResolution": "node",
+          "resolveJsonModule": true,
+          "isolatedModules": true,
+          "noEmit": true,
+          "types": ["cypress", "node"]
+        },
+        "include": [
+          "cypress/**/*.ts",
+          "cypress/**/*.tsx"
+        ],
+        "exclude": ["node_modules"]
+      }
      ```
    - **Пояснение:**
      - **`target`** и **`module`**: Обеспечивают генерацию современного JavaScript.
@@ -244,7 +251,7 @@
 
 1. **Организация файлов TypeScript:**
    - Все тестовые файлы Cypress должны иметь расширение `.ts`.
-   - Организуйте тесты по каталогам, например, `cypress/integration`, и убедитесь, что в `tsconfig.json` указаны эти пути.
+   - Организуйте тесты по каталогам, например, `cypress/e2e`, и убедитесь, что в `tsconfig.json` указаны эти пути.
    - Храните повторно используемые типы и интерфейсы в отдельном файле (например, `cypress/support/types.ts`).
 
 2. **Поддержание типобезопасности:**
@@ -261,17 +268,19 @@
    - Указывайте типы параметров и возвращаемых значений для лучшей проверки типов и поддержки IntelliSense.
    - **Пример пользовательской команды TypeScript:**
      ```typescript
-     // cypress/support/commands.ts
-     declare namespace Cypress {
-       interface Chainable {
-         login(username: string, password: string): Chainable<Element>;
-       }
-     }
+        export { }
+        declare global {
+          namespace Cypress {
+            interface Chainable {
+              login(name: string, password: string): Chainable<void>
+            }
+          }
+        }
 
-     Cypress.Commands.add('login', (username: string, password: string) => {
-       cy.get('[data-testid="login-username-input"]').clear().type(username);
-       cy.get('[data-testid="login-password-input"]').clear().type(password);
-       return cy.get('[data-testid="login-submit-button"]').click();
+      Cypress.Commands.add('login', (username: string, password: string) => {
+        cy.get('[data-testid="login-username-input"]').clear().type(username);
+        cy.get('[data-testid="login-password-input"]').clear().type(password);
+        return cy.get('[data-testid="login-submit-button"]').click();
      });
      ```
 
@@ -355,7 +364,7 @@
    - Преобразуйте существующий тест на JavaScript в TypeScript.
 
 2. **Напишите и запустите простой Cypress-тест на TypeScript:**
-   - Создайте тестовый файл (например, `cypress/integration/login.spec.ts`), используя аннотации типов и интерфейсы.
+   - Создайте тестовый файл (например, `cypress/e2e/login.spec.ts`), используя аннотации типов и интерфейсы.
    - Используйте пользовательские команды, написанные на TypeScript, для выполнения действия входа.
    - Запустите тест и понаблюдайте за работой IntelliSense и проверки типов.
 
@@ -380,7 +389,7 @@
    **О:** Пользовательские команды позволяют инкапсулировать повторяющиеся действия, сокращать дублирование кода и создавать более высокоуровневые абстракции. При написании на TypeScript они предоставляют типобезопасность, упрощая сопровождение и отладку тестов.
 
 5. **В:** *Как организовать файлы TypeScript для тестирования Cypress?*  
-   **О:** Обычная структура — хранить тестовые файлы в `cypress/integration` (с расширением `.ts`) и пользовательские команды, типы, объекты страниц — в `cypress/support`. Хорошо организованная структура каталогов способствует ясности и масштабируемости.
+   **О:** Обычная структура — хранить тестовые файлы в `cypress/e2e` (с расширением `.ts`) и пользовательские команды, типы, объекты страниц — в `cypress/support`. Хорошо организованная структура каталогов способствует ясности и масштабируемости.
 
 1. **В:** *Что означает, что TypeScript — это "надмножество" JavaScript?*  
    **О:** Это значит, что весь корректный JavaScript-код также является корректным TypeScript-кодом. TypeScript добавляет дополнительные возможности, такие как статические типы и интерфейсы, не нарушая совместимость с существующим JavaScript.

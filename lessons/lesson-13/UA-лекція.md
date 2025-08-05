@@ -62,32 +62,39 @@
 1. **Встановлення TypeScript та необхідних типів:**
    - **Команди для встановлення:**
      ```bash
-     npm install --save-dev typescript @types/node @types/cypress
+     npm install --save-dev cypress typescript @types/node
      ```
    - **Навіщо ці пакунки?**
      - `typescript`: Компілятор TypeScript.
      - `@types/node`: Опис типів для Node.js, необхідний для Cypress-завдань та Node API.
-     - `@types/cypress`: Опис типів команд Cypress, що забезпечує IntelliSense і перевірку типів.
 
 2. **Налаштування tsconfig.json для Cypress:**
    - Створіть файл `tsconfig.json` у корені проекту, якщо його ще немає.
    - **Приклад tsconfig.json:**
      ```json
      {
-       "compilerOptions": {
-         "target": "esnext",
-         "module": "esnext",
-         "strict": true,
-         "jsx": "preserve",
-         "moduleResolution": "node",
-         "esModuleInterop": true,
-         "skipLibCheck": true,
-         "forceConsistentCasingInFileNames": true,
-         "types": ["cypress", "node"]
-       },
-       "include": ["**/*.ts", "**/*.tsx", "cypress/**/*.ts"],
-       "exclude": ["node_modules"]
-     }
+        "compilerOptions": {
+          "target": "ES2020",
+          "module": "ESNext",
+          "lib": ["ES2020", "DOM", "DOM.Iterable"],
+          "allowJs": false,
+          "skipLibCheck": true,
+          "esModuleInterop": false,
+          "allowSyntheticDefaultImports": true,
+          "strict": true,
+          "forceConsistentCasingInFileNames": true,
+          "moduleResolution": "node",
+          "resolveJsonModule": true,
+          "isolatedModules": true,
+          "noEmit": true,
+          "types": ["cypress", "node"]
+        },
+        "include": [
+          "cypress/**/*.ts",
+          "cypress/**/*.tsx"
+        ],
+        "exclude": ["node_modules"]
+      }
      ```
    - **Пояснення:**
      - **`target`** and **`module`**: Гарантують генерацію сучасного JavaScript.
@@ -245,7 +252,7 @@
 
 1. **Організація TypeScript-файлів:**
    - Усі тестові файли Cypress зберігайте з розширенням `.ts`.
-   - Організуйте ваші тести у директоріях на кшталт `cypress/integration` і переконайтесь, що шляхи цих папок включені в `tsconfig.json`.
+   - Організуйте ваші тести у директоріях на кшталт `cypress/e2e` і переконайтесь, що шляхи цих папок включені в `tsconfig.json`.
    - Перевикористовувані типи та інтерфейси зберігайте у окремому файлі (наприклад, `cypress/support/types.ts`).
 
 2. **Підтримка типобезпечності:**
@@ -262,18 +269,20 @@
    - Вказуйте типи параметрів та значень, які повертаються, для кращої перевірки типів та підтримки IntelliSense.
    - **Приклад кастомної команди на TypeScript:**
      ```typescript
-     // cypress/support/commands.ts
-     declare namespace Cypress {
-       interface Chainable {
-         login(username: string, password: string): Chainable<Element>;
-       }
-     }
+      export { }
+        declare global {
+          namespace Cypress {
+            interface Chainable {
+              login(name: string, password: string): Chainable<void>
+            }
+          }
+        }
 
-     Cypress.Commands.add('login', (username: string, password: string) => {
-       cy.get('[data-testid="login-username-input"]').clear().type(username);
-       cy.get('[data-testid="login-password-input"]').clear().type(password);
-       return cy.get('[data-testid="login-submit-button"]').click();
-     });
+      Cypress.Commands.add('login', (username: string, password: string) => {
+        cy.get('[data-testid="login-username-input"]').clear().type(username);
+        cy.get('[data-testid="login-password-input"]').clear().type(password);
+        return cy.get('[data-testid="login-submit-button"]').click();
+      });
      ```
 
     
@@ -355,7 +364,7 @@
    - Перетворіть існуючий тест JavaScript на TypeScript.
 
 2. **Напишіть і запустіть простий Cypress-тест на TypeScript:**
-   - Створіть файл тесту (наприклад, `cypress/integration/login.spec.ts`) з використанням типізації та інтерфейсів.
+   - Створіть файл тесту (наприклад, `cypress/e2e/login.spec.ts`) з використанням типізації та інтерфейсів.
    - Використовуйте кастомні команди, написані на TypeScript, для виконання дії входу.
    - Запустіть тест і спостерігайте за роботою IntelliSense та перевіркою типів.
 
@@ -380,7 +389,7 @@
    **A:** Кастомні команди дозволяють інкапсулювати повторювані дії, зменшити дублювання коду та створювати більші абстракції. У TypeScript вони надають типобезпечність, полегшуючи підтримку та налагодження тестів.
 
 5. **Q:** *Як організувати TypeScript-файли для тестування Cypress?*  
-   **A:** Рекомендовано зберігати тести у `cypress/integration` (з розширенням `.ts`), а кастомні команди, типи, та page objects — у `cypress/support`. Добре організована структура допомагає підтримувати зрозумілість та масштабованість проекту.
+   **A:** Рекомендовано зберігати тести у `cypress/e2e` (з розширенням `.ts`), а кастомні команди, типи, та page objects — у `cypress/support`. Добре організована структура допомагає підтримувати зрозумілість та масштабованість проекту.
 
 1. **Q:** *Що означає, що TypeScript — це "надмножина" JavaScript?*  
    **A:** Це означає, що весь правильний JavaScript-код є також правильним TypeScript-кодом. TypeScript додає додаткові можливості, такі як статичні типи та інтерфейси, підвищуючи якість коду без порушення сумісності з існуючим JavaScript.

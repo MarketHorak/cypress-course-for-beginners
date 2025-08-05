@@ -8,6 +8,9 @@
         <li data-testid="menu-registration">
           <router-link to="/registration">Registration</router-link>
         </li>
+        <li data-testid="menu-login">
+          <router-link to="/login">Login</router-link>
+        </li>
         <li data-testid="menu-about">
           <router-link to="/about">About Us</router-link>
         </li>

@@ -62,32 +62,39 @@
 1. **Instalace TypeScriptu a potřebných typů:**
    - **Instalační příkazy:**
      ```bash
-     npm install --save-dev typescript @types/node @types/cypress
+     npm install --save-dev cypress typescript @types/node
      ```
    - **Proč tyto balíčky?**
      - `typescript`: Kompilátor TypeScriptu.
      - `@types/node`: Typové definice pro Node.js, potřebné pro Cypress úlohy a Node API.
-     - `@types/cypress`: Poskytuje typové definice pro Cypress příkazy, umožňuje IntelliSense a kontrolu typů.
 
 2. **Konfigurace `tsconfig.json` pro Cypress:**
    - V kořeni projektu vytvořte soubor `tsconfig.json`, pokud již neexistuje.
    - **Příklad `tsconfig.json`:**
      ```json
      {
-       "compilerOptions": {
-         "target": "esnext",
-         "module": "esnext",
-         "strict": true,
-         "jsx": "preserve",
-         "moduleResolution": "node",
-         "esModuleInterop": true,
-         "skipLibCheck": true,
-         "forceConsistentCasingInFileNames": true,
-         "types": ["cypress", "node"]
-       },
-       "include": ["**/*.ts", "**/*.tsx", "cypress/**/*.ts"],
-       "exclude": ["node_modules"]
-     }
+        "compilerOptions": {
+          "target": "ES2020",
+          "module": "ESNext",
+          "lib": ["ES2020", "DOM", "DOM.Iterable"],
+          "allowJs": false,
+          "skipLibCheck": true,
+          "esModuleInterop": false,
+          "allowSyntheticDefaultImports": true,
+          "strict": true,
+          "forceConsistentCasingInFileNames": true,
+          "moduleResolution": "node",
+          "resolveJsonModule": true,
+          "isolatedModules": true,
+          "noEmit": true,
+          "types": ["cypress", "node"]
+        },
+        "include": [
+          "cypress/**/*.ts",
+          "cypress/**/*.tsx"
+        ],
+        "exclude": ["node_modules"]
+      }
      ```
    - **Vysvětlení:**
      - **`target`** a **`module`**: Zajišťuje moderní JavaScript výstup.
@@ -245,7 +252,7 @@
 
 1. **Organizace TypeScript souborů:**
    - Uchovávejte všechny testovací Cypress soubory s příponou `.ts`.
-   - Testy organizujte např. do složky `cypress/integration` a ujistěte se, že `tsconfig.json` obsahuje tyto cesty.
+   - Testy organizujte např. do složky `cypress/e2e` a ujistěte se, že `tsconfig.json` obsahuje tyto cesty.
    - Znovupoužitelné typy a rozhraní ukládejte do samostatného souboru (např. `cypress/support/types.ts`).
 
 2. **Zachování typové bezpečnosti:**
@@ -262,18 +269,20 @@
    - Určete typy pro parametry a návratové hodnoty, aby byla zajištěna lepší kontrola typů a IntelliSense.
    - **Příklad vlastního příkazu v TypeScriptu:**
      ```typescript
-     // cypress/support/commands.ts
-     declare namespace Cypress {
-       interface Chainable {
-         login(username: string, password: string): Chainable<Element>;
-       }
-     }
+        export { }
+        declare global {
+          namespace Cypress {
+            interface Chainable {
+              login(name: string, password: string): Chainable<void>
+            }
+          }
+        }
 
-     Cypress.Commands.add('login', (username: string, password: string) => {
-       cy.get('[data-testid="login-username-input"]').clear().type(username);
-       cy.get('[data-testid="login-password-input"]').clear().type(password);
-       return cy.get('[data-testid="login-submit-button"]').click();
-     });
+      Cypress.Commands.add('login', (username: string, password: string) => {
+        cy.get('[data-testid="login-username-input"]').clear().type(username);
+        cy.get('[data-testid="login-password-input"]').clear().type(password);
+        return cy.get('[data-testid="login-submit-button"]').click();
+      });
      ```
 
     
@@ -356,7 +365,7 @@
    - Převěďte existující JS test na TypeScript.
 
 2. **Napište a spusťte jednoduchý Cypress test v TypeScriptu:**
-   - Vytvořte testovací soubor (např. `cypress/integration/login.spec.ts`), který využívá typové anotace a rozhraní.
+   - Vytvořte testovací soubor (např. `cypress/e2e/login.spec.ts`), který využívá typové anotace a rozhraní.
    - Použijte vlastní příkazy napsané v TypeScriptu k provedení přihlášení.
    - Spusťte test a sledujte IntelliSense a kontrolu typů v akci.
 
@@ -381,7 +390,7 @@
    **A:** Vlastní příkazy vám umožňují zabalit opakující se akce, snížit duplikaci kódu a vytvářet vyšší abstrakci. Když jsou napsány v TypeScriptu, poskytují typovou bezpečnost, což usnadňuje údržbu a ladění testů.
 
 5. **Q:** *Jak organizuji své TypeScript soubory pro Cypress testování?*  
-   **A:** Běžná struktura je ukládat testovací soubory do `cypress/integration` (s příponou `.ts`) a vlastní příkazy, typy a page objecty do `cypress/support`. Dobře organizovaná složková struktura napomáhá udržení přehledu a škálovatelnosti.
+   **A:** Běžná struktura je ukládat testovací soubory do `cypress/e2e` (s příponou `.ts`) a vlastní příkazy, typy a page objecty do `cypress/support`. Dobře organizovaná složková struktura napomáhá udržení přehledu a škálovatelnosti.
 
 1. **Q:** *Co znamená, že TypeScript je „nadmnožina“ JavaScriptu?*  
    **A:** Znamená to, že veškerý platný JavaScript je také platný TypeScript. TypeScript přidává navíc funkce jako statické typy a rozhraní, které zvyšují kvalitu kódu, aniž by rušily kompatibilitu s existujícím JavaScriptem.

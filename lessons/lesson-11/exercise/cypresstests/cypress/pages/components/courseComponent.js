@@ -15,12 +15,47 @@ export default class CourseComponent {
 
   commentSection = () => this.nadradenyElement().find('.comments-section')
 
-  addComment(commentText) {
-    this.commentInput().clear().type(commentText)
-
-    this.addCommentButton().click()
+  addComment(commentText) { this.commentInput().clear().type(commentText)
+     this.addCommentButton().click()
   }
+ addCommentMoje(commentText) { this.commentInput().clear().type(commentText)}
+  clickButton = () => this.addCommentButton().click()
 }
+
+// export default class CourseComponent {
+//   testid = '';
+
+//   constructor(testid) {
+//     this.testid = testid;
+//   }
+
+//   heading = () => cy.get('h3');
+//   price = () => cy.get('.price');
+// }
+
+// -------------- Alternativní způsob exportu instance
+// class CourseComponent {
+//   testid = '';
+
+//   constructor(testid) {
+//     this.testid = testid;
+//   }
+
+//   heading = () => cy.get('h3');
+//   price = () => cy.get('.price');
+// }
+
+// export const courseComponent = (testid) => new CourseComponent(testid);
+
+
+
+
+
+
+
+
+
+
 //   addComment(commentText) {
 //     this.commentInput().clear().type(commentText)
 //     this.addCommentButton().click()

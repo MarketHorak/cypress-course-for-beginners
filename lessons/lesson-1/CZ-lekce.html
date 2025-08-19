@@ -1,0 +1,847 @@
+<!DOCTYPE html><html><head>
+      <title>CZ-lekce</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\OMEN\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h2 id="lekce-1-vítejte-přehled-kurzu-a-úvod-do-nodejs"><strong>Lekce 1: Vítejte, přehled kurzu a úvod do Node.js</strong> </h2>
+<h3 id="1-osnova-obsahu"><strong>1. Osnova obsahu</strong> </h3>
+<h4 id="a-vítání-a-představení"><strong>A. Vítání a představení</strong> </h4>
+<ul>
+<li><strong>Přivítání a představení instruktora:</strong>
+<ul>
+<li>Krátké osobní představení.</li>
+<li>Přehled vašich zkušeností a odbornosti v oblasti testování a Cypressu.</li>
+</ul>
+</li>
+<li><strong>Představení studentů:</strong>
+<ul>
+<li>Rychlé kolečko představování (jméno, zázemí, očekávání).</li>
+</ul>
+</li>
+</ul>
+<h4 id="b-přehled-kurzu"><strong>B. Přehled kurzu</strong> </h4>
+<ul>
+<li><strong>Cíle kurzu:</strong>
+<ul>
+<li>Přechod z manuálního na automatizované testování.</li>
+<li>Zvládnutí základů frameworku Cypress.</li>
+</ul>
+</li>
+<li><strong>Struktura kurzu:</strong>
+<ul>
+<li>Rozdělení na moduly a lekce.</li>
+<li>Přehled praktických činností a závěrečného projektu.</li>
+</ul>
+</li>
+<li><strong>Očekávání a požadavky:</strong>
+<ul>
+<li>Docházka a aktivní účast.</li>
+<li>Závazek dokončit zadané úkoly a cvičení.</li>
+</ul>
+</li>
+</ul>
+<h4 id="c-úvod-do-automatizovaného-testování"><strong>C. Úvod do automatizovaného testování</strong> </h4>
+<ul>
+<li><strong>Co je automatizované testování?</strong>
+<ul>
+<li>Definice a srovnání s manuálním testováním.</li>
+</ul>
+</li>
+<li><strong>Výhody automatizovaného testování:</strong>
+<ul>
+<li>Efektivita a rychlost.</li>
+<li>Znovupoužitelnost a konzistence.</li>
+<li>Lepší pokrytí testů a spolehlivost.</li>
+</ul>
+</li>
+<li><strong>Typy automatizovaného testování:</strong>
+<ul>
+<li>Jednotkové testy (Unit Testing), integrační testy, end-to-end (E2E) testování.</li>
+</ul>
+</li>
+</ul>
+<h4 id="výhody-automatizovaného-testování"><strong>Výhody automatizovaného testování</strong> </h4>
+<h5 id="definice"><strong>Definice:</strong> </h5>
+<p>Automatizované testování znamená použití specializovaných nástrojů a skriptů ke spouštění testů na softwarových aplikacích automaticky, bez manuálního zásahu.</p>
+<h5 id="podrobné-vysvětlení"><strong>Podrobné vysvětlení:</strong> </h5>
+<ol>
+<li>
+<p><strong>Efektivita a rychlost:</strong></p>
+<ul>
+<li><strong>Rychlé provedení:</strong> Automatizované testy běží podstatně rychleji než manuální, poskytují rychlou zpětnou vazbu na změny v kódu.</li>
+<li><strong>Časté testování:</strong> Umožňují spouštění testů vícekrát denně, což je nezbytné pro CI/CD pipeline.</li>
+</ul>
+</li>
+<li>
+<p><strong>Znovupoužitelnost a konzistence:</strong></p>
+<ul>
+<li><strong>Znovupoužitelné skripty:</strong> Testovací skripty lze použít v různých projektech a scénářích, což snižuje náročnost vytváření nových testů.</li>
+<li><strong>Konzistentní výsledky:</strong> Automatizované testy pokaždé vykonávají stejné kroky, čímž odstraňují lidské chyby a zajišťují spolehlivé výsledky.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lepší pokrytí testů:</strong></p>
+<ul>
+<li><strong>Komplexní testování:</strong> Umožnuje testovat širokou škálu scénářů včetně krajních případů (edge cases), na které by se v manuálním testování mohlo zapomenout.</li>
+<li><strong>Regresní testování:</strong> Rychlé ověření, že nové změny kódu neovlivnily stávající funkcionality.</li>
+</ul>
+</li>
+<li>
+<p><strong>Nákladová efektivita:</strong></p>
+<ul>
+<li><strong>Snížené náklady na práci:</strong> Počáteční nastavení může být náročnější, ale z dlouhodobého hlediska automatizace šetří čas i zdroje díky minimalizaci potřeby opakovaného manuálního testování.</li>
+<li><strong>Včasné odhalení chyb:</strong> Odhalení a oprava chyb v rané fázi vývoje snižuje náklady na jejich odstranění po vydání.</li>
+</ul>
+</li>
+<li>
+<p><strong>Vyšší přesnost:</strong></p>
+<ul>
+<li><strong>Preciznost:</strong> Automatizované testy vykonávají předdefinované kroky přesně a nevynechávají žádné detaily, což zajišťuje důkladné ověření chování aplikace.</li>
+<li><strong>Spolehlivá práce s daty:</strong> Konzistentně spravují testovací data i prostředí a poskytují důvěryhodné výsledky testů.</li>
+</ul>
+</li>
+<li>
+<p><strong>Škálovatelnost:</strong></p>
+<ul>
+<li><strong>Podpora velkých projektů:</strong> Snadno zvládají rozsáhlé sady testů a komplexní aplikace bez nutnosti úměrně navyšovat úsilí.</li>
+</ul>
+</li>
+<li>
+<p><strong>CI/CD (kontinuální integrace a doručení):</strong></p>
+<ul>
+<li><strong>Bezproblémová integrace:</strong> Testy lze jednoduše zapojit do CI/CD pipeline, umožňují průběžné testování a rychlé nasazení změn.</li>
+<li><strong>Okamžitá zpětná vazba:</strong> Vývojáři ihned ví, zda změny kódu testy prošly.</li>
+</ul>
+</li>
+</ol>
+<h4 id="d-přehled-cypressu-jako-testovacího-frameworku"><strong>D. Přehled Cypressu jako testovacího frameworku</strong> </h4>
+<ul>
+<li><strong>Co je Cypress?</strong>
+<ul>
+<li>Úvod do Cypressu a jeho role v E2E testování.</li>
+</ul>
+</li>
+<li><strong>Proč zvolit Cypress?</strong>
+<ul>
+<li>Klíčové funkce: okamžité načtení změn, automatické čekání, snadné ladění.</li>
+<li>Srovnání s jinými nástroji (např. Selenium).</li>
+</ul>
+</li>
+</ul>
+<h5 id="co-je-cypress"><strong>Co je Cypress?</strong> </h5>
+<h6 id="definice-1"><strong>Definice:</strong> </h6>
+<p>Cypress je open-source end-to-end testovací framework navržený speciálně pro moderní webové aplikace. Umožňuje vývojářům i QA inženýrům snadno psát, spouštět a ladit testy přímo v prohlížeči.</p>
+<h5 id="podrobné-vysvětlení-1"><strong>Podrobné vysvětlení:</strong> </h5>
+<ol>
+<li>
+<p><strong>End-to-End testovací framework:</strong></p>
+<ul>
+<li><strong>Kompletní testování:</strong> Cypress umožňuje testování celých uživatelských scénářů, od interakcí na UI až po odezvy backendové API.</li>
+</ul>
+</li>
+<li>
+<p><strong>Přátelské pro vývojáře:</strong></p>
+<ul>
+<li><strong>Jednoduché nastavení:</strong> K použití Cypressu je potřeba minimální konfigurace, což zpřístupňuje framework i začátečníkům v automatizovaném testování.</li>
+<li><strong>Okamžité načítání změn:</strong> Cypress automaticky detekuje změny v testech a ihned je znovu spustí, což urychluje vývoj.</li>
+</ul>
+</li>
+<li>
+<p><strong>Navrženo pro moderní webové aplikace:</strong></p>
+<ul>
+<li><strong>Založeno na JavaScriptu:</strong> Cypress je psán v JavaScriptu a přirozeně se integruje s frameworky jako React, Angular, Vue.js.</li>
+<li><strong>Moderní architektura:</strong> Narozdíl od tradičních nástrojů běží Cypress přímo v prohlížeči.</li>
+</ul>
+</li>
+<li>
+<p><strong>Silné ladicí nástroje:</strong></p>
+<ul>
+<li><strong>Interaktivní běžec testů:</strong> Poskytuje vizuální rozhraní s možností sledovat testy v reálném čase, inspektovat prvky a prohlížet podrobné logy.</li>
+<li><strong>Time Travel:</strong> Poskytuje možnost krokovat (hover) jednotlivými příkazy a zjistit, co se stalo v každém kroku.</li>
+</ul>
+</li>
+<li>
+<p><strong>Automatické čekání:</strong></p>
+<ul>
+<li><strong>Bez ručního čekání:</strong> Cypress automaticky čeká na načtení prvků a dokončení příkazů, snižuje potřebu manuální synchronizace.</li>
+</ul>
+</li>
+<li>
+<p><strong>Kontrola síťové komunikace:</strong></p>
+<ul>
+<li><strong>Zachytávání a mockování požadavků:</strong> Cypress umožňuje zachytávat a měnit síťové požadavky, což usnadňuje testování různých scénářů a API.</li>
+</ul>
+</li>
+<li>
+<p><strong>Rozšiřitelnost:</strong></p>
+<ul>
+<li><strong>Pluginy a integrace:</strong> Podporuje širokou škálu rozšíření a snadno se integruje s dalšími nástroji dle potřeb projektu.</li>
+</ul>
+</li>
+<li>
+<p><strong>Podrobná dokumentace:</strong></p>
+<ul>
+<li><strong>Návody a příklady:</strong> Cypress nabízí obsáhlou dokumentaci a příklady použití.</li>
+</ul>
+</li>
+</ol>
+<h5 id="proč-zvolit-cypress"><strong>Proč zvolit Cypress?</strong> </h5>
+<h6 id="definice-2"><strong>Definice:</strong> </h6>
+<p>Cypress se vyznačuje unikátní architekturou, snadným používáním a robustní sadou funkcí přizpůsobenou modernímu vývoji webu.</p>
+<ol>
+<li>
+<p><strong>Rychlost a efektivita:</strong></p>
+<ul>
+<li><strong>Rychlé provádění testů:</strong> Spouští testy přímo v prohlížeči s rychlou odezvou a snižuje celkový čas testování.</li>
+<li><strong>Okamžité načtení změn:</strong> Testy se po úpravě automaticky načítají, zvyšuje produktivitu.</li>
+</ul>
+</li>
+<li>
+<p><strong>Jednoduché nastavení a používání:</strong></p>
+<ul>
+<li><strong>Snadná instalace:</strong> Cypress lze nainstalovat během několika minut přes npm.</li>
+<li><strong>Minimální konfigurace:</strong> K zahájení psaní testů stačí jen základní nastavení.</li>
+</ul>
+</li>
+<li>
+<p><strong>Okamžitá zpětná vazba a ladění:</strong></p>
+<ul>
+<li><strong>Interaktivní test runner:</strong> Zobrazí testy v reálném čase, s možností interakce a inspekce.</li>
+<li><strong>Time Travel ladění:</strong> Možnost krokovat příkazy pro snadnější identifikaci chyb.</li>
+</ul>
+</li>
+<li>
+<p><strong>Automatické čekání:</strong></p>
+<ul>
+<li><strong>Vestavěná synchronizace:</strong> Cypress čeká na načtení prvků a dokončí příkazy než pokračuje, což zjednodušuje testy a eliminuje "flaky" chování.</li>
+</ul>
+</li>
+<li>
+<p><strong>Síťová kontrola a mockování:</strong></p>
+<ul>
+<li><strong>Zachytávání požadavků:</strong> Umožňuje manipulaci se síťovými požadavky pro simulaci scénářů a mockování odpovědí backendu.</li>
+</ul>
+</li>
+<li>
+<p><strong>Bohatá sada asercí a příkazů:</strong></p>
+<ul>
+<li><strong>Vestavěné aserce:</strong> Usnadňuje ověřování chování aplikací.</li>
+<li><strong>Vlastní příkazy:</strong> Lze definovat vlastní příkazy pro opakované úkony.</li>
+</ul>
+</li>
+<li>
+<p><strong>Integrace s CI/CD:</strong></p>
+<ul>
+<li><strong>Kompatibilita:</strong> Hladce spolupracuje s CI systémy jako GitHub Actions, GitLab CI, Jenkins.</li>
+<li><strong>Cypress Dashboard:</strong> Pokročilá analytika a monitoring testů.</li>
+</ul>
+</li>
+<li>
+<p><strong>Silná komunita a podpora:</strong></p>
+<ul>
+<li><strong>Aktivní komunita:</strong> Přispívá pluginy i radami.</li>
+<li><strong>Obsáhlá dokumentace:</strong> Uživatelé mají k dispozici podrobné návody a řešení.</li>
+</ul>
+</li>
+<li>
+<p><strong>Moderní architektura:</strong></p>
+<ul>
+<li><strong>Přímá interakce s prohlížečem:</strong> Přináší přesnější a spolehlivější výsledky než nástroje mimo prohlížeč.</li>
+<li><strong>Kompatibilita s moderními frameworky:</strong> Ideální pro dnešní dynamické webové aplikace.</li>
+</ul>
+</li>
+<li>
+<p><strong>Udržovatelnost a škálovatelnost:</strong></p>
+<ul>
+<li><strong>Čitelný testovací kód:</strong> Podporuje psaní přehledných a snadno udržovatelných testů.</li>
+<li><strong>Znovupoužitelné komponenty:</strong> Možnost tvorby opakovatelných částí testů.</li>
+</ul>
+</li>
+</ol>
+<h4 id="e-úvod-do-nodejs"><strong>E. Úvod do Node.js</strong> </h4>
+<ul>
+<li><strong>Co je Node.js?</strong>
+<ul>
+<li>Přehled Node.js a jeho důležitosti v moderním webovém vývoji.</li>
+</ul>
+</li>
+<li><strong>Node.js a Cypress:</strong>
+<ul>
+<li>Jak Cypress využívá Node.js ke spouštění testů.</li>
+</ul>
+</li>
+</ul>
+<h4 id="co-je-nodejs"><strong>Co je Node.js?</strong> </h4>
+<h5 id="definice-3"><strong>Definice:</strong> </h5>
+<p>Node.js je open-source multiplatformní JavaScript runtime, který umožňuje vývojářům spouštět JavaScript mimo webový prohlížeč, typicky na serveru.</p>
+<h5 id="podrobné-vysvětlení-2"><strong>Podrobné vysvětlení:</strong> </h5>
+<ol>
+<li>
+<p><strong>JavaScriptové běhové prostředí:</strong></p>
+<ul>
+<li><strong>Serverový JavaScript:</strong> Spouští JavaScript na serveru, což umožňuje stavět škálovatelné síťové aplikace.</li>
+<li><strong>V8 Engine:</strong> Stojí na Chrome V8 enginu, poskytuje vysoký výkon.</li>
+</ul>
+</li>
+<li>
+<p><strong>Událostmi řízený neblokující I/O:</strong></p>
+<ul>
+<li><strong>Asynchronní operace:</strong> Událostně řízený model s neblokujícím I/O efektivně zvládá mnoho současných požadavků.</li>
+<li><strong>Škálovatelnost:</strong> Toto řešení umožňuje zpracovat velké množství požadavků bez velké zátěže.</li>
+</ul>
+</li>
+<li>
+<p><strong>Správa balíčků pomocí npm:</strong></p>
+<ul>
+<li><strong>Široký ekosystém:</strong> Node.js je dodáván s npm – největším ekosystémem open-source knihoven a nástrojů.</li>
+<li><strong>Správa závislostí:</strong> Zjednodušuje správu závislostí projektů.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiplatformní kompatibilita:</strong></p>
+<ul>
+<li><strong>Podpora více OS:</strong> Funguje na Windows, macOS i Linuxu.</li>
+<li><strong>Jednotný jazyk:</strong> Umožňuje vývoj jak na klientu, tak serveru v JavaScriptu.</li>
+</ul>
+</li>
+<li>
+<p><strong>Široké využití:</strong></p>
+<ul>
+<li><strong>Web servery a API:</strong> Vhodný pro rychlé a škálovatelné web servery, REST API i reálné aplikace jako chat nebo online hry.</li>
+<li><strong>Příkazové nástroje:</strong> Umožňuje tvorbu CLI utilit a skriptů.</li>
+<li><strong>Mikroservisy:</strong> Umožňuje tvorbu udržitelných, modulárních aplikací.</li>
+</ul>
+</li>
+<li>
+<p><strong>Aktivní komunita a vývoj:</strong></p>
+<ul>
+<li><strong>Živý ekosystém:</strong> Aktivní komunita neustále zlepšuje Node.js.</li>
+<li><strong>Pravidelné aktualizace:</strong> Zajišťují bezpečnost a moderní přístup.</li>
+</ul>
+</li>
+<li>
+<p><strong>Integrace s moderními nástroji:</strong></p>
+<ul>
+<li><strong>Build nástroje:</strong> Webpack, Gulp, Grunt pro efektivní buildy a automatizaci.</li>
+<li><strong>Testovací frameworky:</strong> Podpora nástrojů jako Mocha, Jest, Cypress.</li>
+</ul>
+</li>
+<li>
+<p><strong>Výkon a efektivita:</strong></p>
+<ul>
+<li><strong>Vysoká propustnost:</strong> Optimalizován pro I/O-intenzivní operace.</li>
+<li><strong>Nízká latence:</strong> Minimalizuje odezvy pro uživatele.</li>
+</ul>
+</li>
+</ol>
+<h4 id="jak-cypress-využívá-nodejs-ke-spouštění-testů"><strong>Jak Cypress využívá Node.js ke spouštění testů</strong> </h4>
+<h5 id="definice-4"><strong>Definice:</strong> </h5>
+<p>Cypress používá Node.js jako své runtime prostředí pro spouštění testovacích skriptů, správu závislostí a integraci s dalšími nástroji, což zvyšuje výkon i možnosti frameworku.</p>
+<h5 id="podrobné-vysvětlení-3"><strong>Podrobné vysvětlení:</strong> </h5>
+<ol>
+<li>
+<p><strong>Provozní prostředí:</strong></p>
+<ul>
+<li><strong>Spouštění testovacích skriptů:</strong> Testy napsané v JavaScriptu se provádějí v Node.js.</li>
+<li><strong>Serverové úkony:</strong> Node.js zajišťuje např. obsluhu síťových požadavků během testování.</li>
+</ul>
+</li>
+<li>
+<p><strong>Správa balíčků pomocí npm:</strong></p>
+<ul>
+<li><strong>Správa závislostí:</strong> Cypress se instaluje přes npm, umožňuje aktualizace i rozšíření.</li>
+<li><strong>Automatizace skriptů:</strong> Pomocí npm skriptů lze automatizovat spouštění testů.</li>
+</ul>
+</li>
+<li>
+<p><strong>Integrace s vývojářskými nástroji:</strong></p>
+<ul>
+<li><strong>Build nástroje a task runnery:</strong> Snadná integrace s Webpackem a Gulpem.</li>
+<li><strong>CI/CD pipelines:</strong> Node.js umožňuje hladké zapojení Cypressu do Continous Integration.</li>
+</ul>
+</li>
+<li>
+<p><strong>Systém pluginů:</strong></p>
+<ul>
+<li><strong>Rozšiřování funkcí:</strong> Cypress pluginy (Node.js moduly) nabízí rozšíření podle potřeb projektu.</li>
+<li><strong>Přínos komunity:</strong> Široká paleta pluginů z komunity (kódové pokrytí, vizuální testování...)</li>
+</ul>
+</li>
+<li>
+<p><strong>Práce se souborovým systémem:</strong></p>
+<ul>
+<li><strong>Čtení/zápis souborů:</strong> Node.js umožňuje práci s testovacími daty, logy apod.</li>
+<li><strong>Konfigurace prostředí:</strong> Načítání a aplikování konfigurací, např. z <code>cypress.config.js</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Síťová komunikace a testování API:</strong></p>
+<ul>
+<li><strong>Zachytávání požadavků:</strong> Umožňuje mockování a manipulaci s API v průběhu testů.</li>
+<li><strong>Backend interakce:</strong> Možnost komplexního testování frontend i backend částí.</li>
+</ul>
+</li>
+<li>
+<p><strong>Optimalizace výkonu:</strong></p>
+<ul>
+<li><strong>Efektivní spouštění testů:</strong> Neblokující architektura Node.js zajišťuje efektivní provádění i při více požadavcích.</li>
+<li><strong>Správa zdrojů:</strong> Efektivní využití HW prostředků při testování.</li>
+</ul>
+</li>
+<li>
+<p><strong>Režim živých aktualizací (Watch mode):</strong></p>
+<ul>
+<li><strong>Okamžité aktualizace:</strong> Node.js zajišťuje live reload při změně kódu nebo testů.</li>
+<li><strong>Interaktivní vývoj:</strong> Umožňuje ihned sledovat efekt změn v testech.</li>
+</ul>
+</li>
+<li>
+<p><strong>Multiplatformní podpora:</strong></p>
+<ul>
+<li><strong>Jednotnost napříč OS:</strong> Cypress běží stejně na Windows, macOS i Linuxu.</li>
+<li><strong>Flexibilita nasazení:</strong> Možnost provozu lokálně i v cloudových CI systémech.</li>
+</ul>
+</li>
+</ol>
+<h4 id="f-nastavení-vývojového-prostředí"><strong>F. Nastavení vývojového prostředí</strong> </h4>
+<ul>
+<li><strong>Instalace potřebných nástrojů:</strong>
+<ul>
+<li><strong>Node.js a npm:</strong>
+<ul>
+<li>Krok za krokem průvodce instalací.</li>
+<li>Ověření instalace v příkazovém řádku.</li>
+</ul>
+</li>
+<li><strong>Kódový editor (VS Code):</strong>
+<ul>
+<li>Úvod do Visual Studio Code.</li>
+<li>Důležité rozšíření pro Cypress a JavaScript.</li>
+</ul>
+</li>
+<li><strong>Git:</strong>
+<ul>
+<li>Instalace Gitu.</li>
+<li>Základní příkazy a nastavení repozitáře na GitHubu/GitLabu.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="g-začínáme-s-githubgitlab"><strong>G. Začínáme s GitHub/GitLab</strong> </h4>
+<ul>
+<li><strong>Vytvoření repozitáře:</strong>
+<ul>
+<li>Průvodce vytvořením nového repozitáře.</li>
+</ul>
+</li>
+<li><strong>Klonování repozitáře:</strong>
+<ul>
+<li>Klonování na lokální počítač.</li>
+</ul>
+</li>
+<li><strong>Základní operace s Gitem:</strong>
+<ul>
+<li><code>git add</code>, <code>git commit</code>, <code>git push</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="h-přehled-průběhu-lekce"><strong>H. Přehled průběhu lekce</strong> </h4>
+<ul>
+<li><strong>Agenda lekce:</strong>
+<ul>
+<li>Co očekávat v příštích třech hodinách.</li>
+</ul>
+</li>
+<li><strong>Otázky a odpovědi:</strong>
+<ul>
+<li>Prostor pro dotazy.</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-praktické-aktivity-cvičení-a-webové-funkce"><strong>2. Praktické aktivity: Cvičení a webové funkce</strong> </h3>
+<h4 id="a-instalace-a-ověření-nodejs-a-npm"><strong>A. Instalace a ověření Node.js a npm</strong> </h4>
+<ul>
+<li><strong>Cvičení:</strong>
+<ul>
+<li>Studenti si nainstalují Node.js z <a href="https://nodejs.org/">nodejs.org</a>.</li>
+<li>Ověření instalace pomocí:
+<ul>
+<li><code>node -v</code></li>
+<li><code>npm -v</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Webová funkce:</strong>
+<ul>
+<li>Vytvořit jednoduchý JavaScript soubor (<code>hello.js</code>), který vypíše "Hello, Cypress!" do konzole.</li>
+<li>Skript spustit pomocí <code>node hello.js</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="b-nastavení-gitu-a-repozitáře-na-githubgitlab"><strong>B. Nastavení Gitu a repozitáře na GitHub/GitLab</strong> </h4>
+<ul>
+<li><strong>Cvičení:</strong>
+<ul>
+<li>Instalace Gitu z <a href="https://git-scm.com/">git-scm.com</a>.</li>
+<li>Nastavit Git pomocí <code>git config --global user.name "Vaše jméno"</code> a <code>git config --global user.email "vy@priklad.cz"</code>.</li>
+<li>Vytvořit nový repozitář na GitHubu nebo GitLabu.</li>
+<li>Klonovat repozitář na lokální stroj pomocí <code>git clone &lt;adresa-repozitáře&gt;</code>.</li>
+</ul>
+</li>
+<li><strong>Webová funkce:</strong>
+<ul>
+<li>Vytvořit <code>README.md</code> s krátkým popisem projektu.</li>
+<li>Přidat, commitnout a pushnout <code>README.md</code> na GitHub/GitLab.</li>
+</ul>
+</li>
+</ul>
+<h4 id="c-úvod-do-visual-studio-code-vs-code"><strong>C. Úvod do Visual Studio Code (VS Code)</strong> </h4>
+<ul>
+<li><strong>Cvičení:</strong>
+<ul>
+<li>Instalace VS Code z <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.</li>
+<li>Instalace důležitých rozšíření:
+<ul>
+<li><strong>Cypress Snippets</strong> pro příkazy Cypressu.</li>
+<li><strong>ESLint</strong> pro kontrolu JavaScriptu.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Webová funkce:</strong>
+<ul>
+<li>Otevřít klonovaný repozitář ve VS Code.</li>
+<li>Vytvořit základní HTML soubor (<code>index.html</code>).</li>
+<li>Přidat JavaScript pro manipulaci s DOM (např. úprava textu na stránce).</li>
+</ul>
+</li>
+</ul>
+<h4 id="d-základní-práce-s-gitem"><strong>D. Základní práce s Gitem</strong> </h4>
+<ul>
+<li><strong>Cvičení:</strong>
+<ul>
+<li>Provést změnu v <code>README.md</code> (např. přidat sekci "Začínáme").</li>
+<li>Změnu přidat do stage pomocí <code>git add README.md</code>.</li>
+<li>Commitnout změnu příkazem <code>git commit -m "Přidána sekce Začínáme"</code>.</li>
+<li>Pushnout změnu na GitHub/GitLab pomocí <code>git push</code>.</li>
+</ul>
+</li>
+<li><strong>Webová funkce:</strong>
+<ul>
+<li>Zkontrolovat změny v online repozitáři.</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-možné-otázky-studentů"><strong>3. Možné otázky studentů</strong> </h3>
+<ol>
+<li>
+<p><strong>Obecné dotazy k&nbsp;kurzu:</strong></p>
+<ul>
+<li>Jaké předchozí znalosti potřebuji pro tento kurz?</li>
+<li>Jak mi kurz pomůže v současné práci?</li>
+<li>Jak nejlépe sledovat a studovat materiály kurzu?</li>
+</ul>
+</li>
+<li>
+<p><strong>Automatizované testování:</strong></p>
+<ul>
+<li>Jaký je praktický rozdíl mezi manuálním a automatizovaným testováním?</li>
+<li>Může automatizace plně nahradit manuální testování?</li>
+</ul>
+</li>
+<li>
+<p><strong>Framework Cypress:</strong></p>
+<ul>
+<li>Proč zvolit Cypress místo Selenium?</li>
+<li>Jaká jsou omezení Cypressu?</li>
+</ul>
+</li>
+<li>
+<p><strong>Node.js:</strong></p>
+<ul>
+<li>Proč je Node.js nezbytný pro Cypress?</li>
+<li>Musím detailně umět Node.js pro efektivní práci s Cypress?</li>
+</ul>
+</li>
+<li>
+<p><strong>Nastavení vývojového prostředí:</strong></p>
+<ul>
+<li>Co když narazím na chyby při instalaci Node.js nebo npm?</li>
+<li>Existují alternativy k VS Code?</li>
+</ul>
+</li>
+<li>
+<p><strong>Git a GitHub/GitLab:</strong></p>
+<ul>
+<li>Jak důležitá je správa verzí v testovací automatizaci?</li>
+<li>Co dělat, pokud omylem smažu svůj lokální repozitář?</li>
+</ul>
+</li>
+<li>
+<p><strong>Praktická cvičení:</strong></p>
+<ul>
+<li>Jak mohu mimo cvičení trénovat dále?</li>
+<li>Budeme pracovat na reálných projektech v průběhu kurzu?</li>
+</ul>
+</li>
+<li>
+<p><strong>Logistika kurzu:</strong></p>
+<ul>
+<li>Kolik času týdně mám kurzu věnovat?</li>
+<li>Budou k dispozici záznamy a práce na domácích úkolech?</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-doporučené-doplňující-materiály"><strong>4. Doporučené doplňující materiály</strong> </h3>
+<h4 id="a-oficiální-dokumentace-a-návody"><strong>A. Oficiální dokumentace a návody:</strong> </h4>
+<ul>
+<li><strong>Cypress dokumentace:</strong>
+<ul>
+<li><a href="https://docs.cypress.io/guides/getting-started/installing-cypress">Cypress průvodce začátkem</a></li>
+</ul>
+</li>
+<li><strong>Node.js dokumentace:</strong>
+<ul>
+<li><a href="https://nodejs.org/en/docs/">Oficiální dokumentace Node.js</a></li>
+</ul>
+</li>
+<li><strong>Git dokumentace:</strong>
+<ul>
+<li><a href="https://git-scm.com/doc">Oficiální dokumentace Git</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="b-tutoriály-a-články"><strong>B. Tutoriály a články:</strong> </h4>
+<ul>
+<li><strong>Základy JavaScriptu:</strong>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">MDN JavaScript Guide</a></li>
+</ul>
+</li>
+<li><strong>Git a GitHub tutoriál:</strong>
+<ul>
+<li><a href="https://lab.github.com/">GitHub Learning Lab</a></li>
+</ul>
+</li>
+<li><strong>VS Code tutoriály:</strong>
+<ul>
+<li><a href="https://code.visualstudio.com/docs">Dokumentace VS Code</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="c-interaktivní-výukové-platformy"><strong>C. Interaktivní výukové platformy:</strong> </h4>
+<ul>
+<li><strong>Codecademy:</strong>
+<ul>
+<li><a href="https://www.codecademy.com/learn/introduction-to-javascript">Kurzy JavaScriptu</a></li>
+</ul>
+</li>
+<li><strong>FreeCodeCamp:</strong>
+<ul>
+<li><a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/">JavaScript algoritmy a datové struktury</a></li>
+</ul>
+</li>
+<li><strong>GitHub Learning Lab:</strong>
+<ul>
+<li><a href="https://lab.github.com/githubtraining/introduction-to-github">Úvod do GitHubu</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="d-videa-a-webináře"><strong>D. Videa a webináře:</strong> </h4>
+<ul>
+<li><strong>Cypress YouTube kanál:</strong>
+<ul>
+<li><a href="https://www.youtube.com/c/Cypressio">Cypress.io na YouTube</a></li>
+</ul>
+</li>
+<li><strong>Node.js tutoriály:</strong>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=fBNz5xF-Kx4">Traversy Media – Node.js Crash Course</a></li>
+</ul>
+</li>
+<li><strong>Git tutoriály:</strong>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=RGOj5yH7evk">Academind – Git Tutorial for Beginners</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="e-komunita-a-podpora"><strong>E. Komunita a podpora:</strong> </h4>
+<ul>
+<li><strong>Cypress komunita:</strong>
+<ul>
+<li><a href="https://www.cypress.io/community/">Cypress diskusní fórum</a></li>
+</ul>
+</li>
+<li><strong>Stack Overflow:</strong>
+<ul>
+<li><a href="https://stackoverflow.com/questions/tagged/cypress">Tag Cypress na Stack Overflow</a></li>
+</ul>
+</li>
+<li><strong>Komunity GitHub/GitLab:</strong>
+<ul>
+<li>Zapojte se do diskuzí a řešení problémů v repozitářích – praktické učení.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-navržený-rozpis-lekce-na-3-hodiny"><strong>5. Navržený rozpis lekce na 3 hodiny</strong> </h3>
+<h4 id="1-hodina-úvod-a-přehled-kurzu-60-minut"><strong>1. hodina: Úvod a přehled kurzu (60 minut)</strong> </h4>
+<ul>
+<li><strong>Úvod (15 minut):</strong>
+<ul>
+<li>Představení instruktora a studentů.</li>
+</ul>
+</li>
+<li><strong>Přehled kurzu (20 minut):</strong>
+<ul>
+<li>Cíle, struktura, očekávání.</li>
+</ul>
+</li>
+<li><strong>Úvod do automatizovaného testování (25 minut):</strong>
+<ul>
+<li>Co je automatizace?</li>
+<li>Výhody a typy testů.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-hodina-úvod-do-cypressu-a-nodejs-60-minut"><strong>2. hodina: Úvod do Cypressu a Node.js (60 minut)</strong> </h4>
+<ul>
+<li><strong>Přehled Cypressu (30 minut):</strong>
+<ul>
+<li>Co je Cypress?</li>
+<li>Klíčové vlastnosti a srovnání frameworků.</li>
+</ul>
+</li>
+<li><strong>Úvod do Node.js (30 minut):</strong>
+<ul>
+<li>Co je Node.js?</li>
+<li>Role v Cypressu.</li>
+<li>Krátká ukázka Node.js v praxi.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-hodina-nastavení-prostředí-a-základy-githubgitlab-60-minut"><strong>3. hodina: Nastavení prostředí a základy GitHub/GitLab (60 minut)</strong> </h4>
+<ul>
+<li><strong>Nastavení nástrojů (30 minut):</strong>
+<ul>
+<li>Instalace Node.js a npm.</li>
+<li>Instalace VS Code a rozšíření.</li>
+<li>Instalace Git.</li>
+</ul>
+</li>
+<li><strong>Základy GitHub/GitLab (20 minut):</strong>
+<ul>
+<li>Vytvoření a klonování repo.</li>
+<li>Základní příkazy Gitu.</li>
+</ul>
+</li>
+<li><strong>Q&amp;A sekce (10 minut):</strong>
+<ul>
+<li>Prostor pro okamžité dotazy.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="6-dodatečná-doporučení"><strong>6. Dodatečná doporučení</strong> </h3>
+<ul>
+<li>
+<p><strong>Interaktivní demonstrace:</strong></p>
+<ul>
+<li>Živá ukázka instalace Node.js a jeho ověření.</li>
+<li>Průchod založením repo a základními git operacemi.</li>
+</ul>
+</li>
+<li>
+<p><strong>Poutavá vizuální podpora:</strong></p>
+<ul>
+<li>Využijte diagramy k vysvětlení vztahu Node.js, Cypress a testovací workflow.</li>
+<li>Snímky obrazovky kroků instalace.</li>
+</ul>
+</li>
+<li>
+<p><strong>Podpora zapojení:</strong></p>
+<ul>
+<li>Vyzvěte studenty, ať sdílí obrazovku během cvičení.</li>
+<li>Podporujte otevřenou a kooperativní atmosféru.</li>
+</ul>
+</li>
+<li>
+<p><strong>Jasné pokyny:</strong></p>
+<ul>
+<li>Všechny kroky popsat jasně a jednoduše.</li>
+<li>Přidat tipy na řešení obvyklých problémů při instalaci.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="odpovědi-pro-klíčové-sekce"><strong>Odpovědi pro klíčové sekce</strong> </h2>
+<h3 id="část-o-automatizaci-testování"><strong>Část o automatizaci testování:</strong> </h3>
+<p><strong>Otázka: Co je automatizované testování a jak se liší od manuálního?</strong></p>
+<p><strong>Odpověď:</strong><br>
+Automatizované testování využívá specializované nástroje a skripty pro automatické provádění testů softwaru, bez zásahu člověka. Na rozdíl od manuálního testování, kdy tester sám krok po kroku provádí testovací případy, automatizace spouští předem připravené skripty, které opakovaně a konzistentně provádějí stejné akce. Tento přístup je efektivnější, méně náchylný k chybám a poskytuje rychlejší zpětnou vazbu na změny v kódu, což je ideální pro časté cykly testování v agilním vývoji.</p>
+<p><strong>Otázka: Jaké jsou hlavní přínosy zařazení automatizace testování do projektu?</strong></p>
+<p><strong>Odpověď:</strong><br>
+Automatizace testování přináší řadu výhod včetně:</p>
+<ul>
+<li><strong>Vyšší efektivity:</strong> Testy běží rychleji a lze je spouštět opakovaně s minimálním úsilím.</li>
+<li><strong>Lepší přesnosti:</strong> Odstraňuje lidské chyby, zaručuje konzistentní a spolehlivé výsledky.</li>
+<li><strong>Úspory nákladů:</strong> Snižuje dlouhodobé náklady na ruční testování a opravy chyb.</li>
+<li><strong>Komplexní pokrytí testů:</strong> Umožňuje testování řady scénářů včetně okrajových případů.</li>
+<li><strong>Podpora CI/CD:</strong> Lze snadno integrovat do pipeline, testují se automaticky při každé změně kódu.</li>
+</ul>
+<h3 id="část-o-frameworku-cypress"><strong>Část o frameworku Cypress:</strong> </h3>
+<p><strong>Otázka: Co je Cypress a čím se liší od jiných frameworků jako Selenium?</strong></p>
+<p><strong>Odpověď:</strong><br>
+Cypress je open-source end-to-end testovací framework pro moderní webové aplikace. Na rozdíl od Selenium, které běží mimo prohlížeč a komunikuje s ním přes ovladače, Cypress běží přímo uvnitř prohlížeče. Díky tomu je výrazně rychlejší, spolehlivější a nabízí lepší možnosti ladění. Cypress dále poskytuje okamžité načítání změn, automatické čekání a interaktivní běžec testů s vizuálním rozhraním, které je uživatelsky mnohem přívětivější.</p>
+<p><strong>Otázka: Jaké klíčové vlastnosti má Cypress, které zlepšují zážitek z testování?</strong></p>
+<p><strong>Odpověď:</strong><br>
+Mezi klíčové vlastnosti Cypressu patří:</p>
+<ul>
+<li><strong>Okamžité načítání změn:</strong> Po změně testu se automaticky spustí.</li>
+<li><strong>Automatické čekání:</strong> Není potřeba ručně zadávat čekání na načtení prvků.</li>
+<li><strong>Interaktivní běžec testů:</strong> Zobrazuje testy v reálném čase, s možností inspekce a ladění.</li>
+<li><strong>Time Travel ladění:</strong> Možnost zpětně procházet jednotlivé příkazy v průběhu testu.</li>
+<li><strong>Kontrola síťové komunikace:</strong> Možnost zachytávat a mockovat síťové požadavky.</li>
+</ul>
+<h3 id="část-o-nodejs"><strong>Část o Node.js:</strong> </h3>
+<p><strong>Otázka: Co je Node.js a proč je důležitý pro moderní webový vývoj?</strong></p>
+<p><strong>Odpověď:</strong><br>
+Node.js je open-source multiplatformní JavaScriptové běhové prostředí umožňující spouštět JavaScript mimo prohlížeč, typicky na serveru. Je postaven na engine Chrome V8 a umožňuje škálovatelný vývoj síťových aplikací díky svému event-driven, neblokujícímu I/O modelu. Je vhodný pro tvorbu rychlých web serverů, reálných aplikací a práce s mnoha současnými připojeními s minimální režií. Jeho bohatý ekosystém (npm) přináší spoustu knihoven, které zrychlují vývoj.</p>
+<p><strong>Otázka: Jak využívá Cypress Node.js k efektivnímu spouštění testů?</strong></p>
+<p><strong>Odpověď:</strong><br>
+Cypress využívá Node.js jako běhové prostředí pro spouštění test skriptů, správu závislostí a integraci s dalšími nástroji. Node.js zajišťuje serverové operace potřebné pro Cypress (např. obsluha síťových požadavků), stejně jako instalaci a správu Cypressu přes npm. Díky event-driven architektuře může Cypress efektivně provádět mnoho operací současně. Node.js také umožňuje jednoduchou integraci Cypressu do CI/CD pipeline a automatizované testování v různých prostředích.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

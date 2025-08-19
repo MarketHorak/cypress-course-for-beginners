@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "types": [
+      "cypress",
+      "node",
+      "cypress-axe",
+      "@badeball/cypress-cucumber-preprocessor"
+    ]
+  },
+  "include": [
+    "**/*.ts",
+    "cypress/support/global.d.ts",
+    "cypress/e2e/**/*.feature",
+    
+  ]
+}

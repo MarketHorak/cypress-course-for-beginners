@@ -1,0 +1,25 @@
+{
+  "name": "cypresstestsa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.2.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+    "@cypress/grep": "^4.1.1",
+    "@types/node": "^24.3.0",
+    "axe-core": "^4.10.3",
+    "cypress": "^14.5.4",
+    "cypress-axe": "^1.6.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.14.0"
+  }
+}

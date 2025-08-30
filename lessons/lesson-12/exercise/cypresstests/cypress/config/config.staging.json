@@ -1,4 +1,5 @@
 {
+  "baseUrl": "http://localhost:4000",
   "url": "http://staging.com",
   "apiUrl": "http://staging.com/api/v1/"
 }
